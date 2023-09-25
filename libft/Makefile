@@ -7,14 +7,13 @@ RED = "\033[31m"
 VIOLATE = "\033[38;5;208m"
 COLOR_LIMITER = "\033[0m"
 
-
 # ===========================================================================
 # ================================= LIBFT ===================================
 # ===========================================================================
 
-LIB_SOURCES_PATH = ./src/
-LIB_HEADER_PATH = ./includes/
-LIB_BIN_PATH = ./bin/
+LIB_SOURCES_PATH = ./libft/src/
+LIB_HEADER_PATH = ./libft/includes/
+LIB_BIN_PATH = ./libft/bin/
 
 LIB_SOURCES = \
 	ft_atoi.c \
@@ -100,20 +99,6 @@ PRINTF_OBJECTS = $(addprefix $(PRINTF_BIN_PATH), $(PRINTF_SOURCES:%.c=%.o))
 
 all: $(LIB_BIN_PATH) $(NAME)
 
-get_next_line:
-	@make --no-print-directory \
-	LIB_BIN_PATH="$(GNL_BIN_PATH)" \
-	LIB_SOURCES_PATH="$(GNL_SOURCES_PATH)" \
-	LIB_OBJECTS="$(GNL_OBJECTS)" \
-	LIB_HEADER_PATH="$(GNL_HEADER_PATH)"
-
-ft_printf:
-	@make --no-print-directory \
-	LIB_BIN_PATH="$(PRINTF_BIN_PATH)" \
-	LIB_SOURCES_PATH="$(PRINTF_SOURCES_PATH)" \
-	LIB_OBJECTS="$(PRINTF_OBJECTS)" \
-	LIB_HEADER_PATH="$(PRINTF_HEADER_PATH)"
-
 $(LIB_BIN_PATH)%.o: $(LIB_SOURCES_PATH)%.c
 	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(notdir $(<))...
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB_HEADER_PATH)
@@ -128,6 +113,20 @@ $(NAME): $(LIB_OBJECTS)
 $(LIB_BIN_PATH):
 	@mkdir -p $(LIB_BIN_PATH)
 
+get_next_line:
+	@make --no-print-directory \
+	LIB_BIN_PATH="$(GNL_BIN_PATH)" \
+	LIB_SOURCES_PATH="$(GNL_SOURCES_PATH)" \
+	LIB_OBJECTS="$(GNL_OBJECTS)" \
+	LIB_HEADER_PATH="$(GNL_HEADER_PATH)"
+
+ft_printf:
+	@make --no-print-directory \
+	LIB_BIN_PATH="$(PRINTF_BIN_PATH)" \
+	LIB_SOURCES_PATH="$(PRINTF_SOURCES_PATH)" \
+	LIB_OBJECTS="$(PRINTF_OBJECTS)" \
+	LIB_HEADER_PATH="$(PRINTF_HEADER_PATH)"
+	
 clean:
 	@echo $(RED)[Removing Objects...]$(COLOR_LIMITER)
 	@rm -rf $(LIB_BIN_PATH)
