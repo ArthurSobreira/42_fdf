@@ -12,7 +12,7 @@ COLOR_LIMITER = "\033[0m"
 # ===========================================================================
 
 LIB_SOURCES_PATH = ./libft/src/
-LIB_HEADER_PATH = ./libft/includes/
+LIB_HEADER_PATH = ./
 LIB_BIN_PATH = ./libft/bin/
 
 LIB_SOURCES = \
