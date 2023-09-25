@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/25 09:18:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:41:50 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 #define FDF_H
 
 #include "../minilibx/mlx.h"
-#include "../libft/includes/libft.h"
+#include "../libft/libft.h"
 
 #endif
