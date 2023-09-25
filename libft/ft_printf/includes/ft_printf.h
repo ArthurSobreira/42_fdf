@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:30:56 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/25 15:13:57 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:40:47 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 // Include lib header
-# include "../../libft/includes/libft.h"
+# include "../../libft.h"
 
 // Macros Definitions
 # define DECIMAL_BASE "0123456789"
