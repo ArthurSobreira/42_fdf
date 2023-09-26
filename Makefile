@@ -15,6 +15,9 @@ libft:
 mlx:
 	@make -C ./minilibx --no-print-directory
 
+run: all
+	@./a.out
+
 # clean:
 # 	@make clean -C ./libft --no-print-directory
 
