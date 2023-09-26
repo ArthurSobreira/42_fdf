@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/26 16:18:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:53:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	render_x(t_data *data)
 	if (data->win_ptr != NULL)
 	{
 		index = 0;
-		while (index <= 100)
+		while (index <= 200)
 		{
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
 			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) + index, (BLUE_PIXEL * (index + 10)));
@@ -112,9 +112,9 @@ void	render_background(t_data *data, int color)
 int	render(t_data *data)
 {
 	//render_background(data, 0x2e2e2e);
-	//render_x(data);
-	render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
-            120, 120, RED_PIXEL});
+	render_x(data);
+	// render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
+    //         120, 120, RED_PIXEL});
 	return (0);
 }
 
