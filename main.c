@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/26 14:24:55 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:18:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <X11/keysym.h>
 
 #define MLX_ERROR 1
-#define RED_PIXEL 0xFF0000
+#define RED_PIXEL 0xff0000
+#define BLUE_PIXEL 0x0000ff
 
 typedef struct s_data
 {
@@ -49,17 +50,17 @@ int	render_x(t_data *data)
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
 	{
-		index = 1;
+		index = 0;
 		while (index <= 100)
 		{
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
-			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) + index, RED_PIXEL);
+			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) + index, (BLUE_PIXEL * (index + 10)));
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
-			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) - index, RED_PIXEL);
+			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) - index, (BLUE_PIXEL * (index + 10)));
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
-			(WINDOW_WIDTH / 2) - index, (WINDOW_HEIGHT / 2) - index, RED_PIXEL);
+			(WINDOW_WIDTH / 2) - index, (WINDOW_HEIGHT / 2) - index, (BLUE_PIXEL * (index + 10)));
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
-			(WINDOW_WIDTH / 2) - index, (WINDOW_HEIGHT / 2) + index, RED_PIXEL);
+			(WINDOW_WIDTH / 2) - index, (WINDOW_HEIGHT / 2) + index, (BLUE_PIXEL * (index + 10)));
 			index++;
 		}
 	}
@@ -78,7 +79,10 @@ int	render_rect(t_data *data, t_rect rect)
     {
         j = rect.x;
         while (j < rect.x + rect.width)
-            mlx_pixel_put(data->mlx_ptr, data->win_ptr, j++, i, rect.color);
+		{
+            mlx_pixel_put(data->mlx_ptr, data->win_ptr, j, i, (rect.color * j));
+			j++;
+		}
         ++i;
     }
 	return (0);
@@ -97,18 +101,20 @@ void	render_background(t_data *data, int color)
 	{
 		x = 0;
 		while (x < WINDOW_WIDTH)
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x++, y, color);
+		{
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
+			x++;
+		}
 		++y;
 	}
 }
 
 int	render(t_data *data)
 {
-	render_background(data, 0x2e2e2e);
-	render_x(data);
-	render_rect(data, (t_rect){WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100,
-            100, 100, RED_PIXEL});
-    render_rect(data, (t_rect){0, 0, 100, 100, RED_PIXEL});
+	//render_background(data, 0x2e2e2e);
+	//render_x(data);
+	render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
+            120, 120, RED_PIXEL});
 	return (0);
 }
 
