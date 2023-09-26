@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: libft $(NAME)
 
 $(NAME):
-	clang main.c -L ./libft -L ./minilibx -lX11 -lXext -lmlx 
+	$(CC) $(CFLAGS) main.c -L ./libft -L ./minilibx -lX11 -lXext -lmlx 
 
 libft:
 	@make -C ./libft --no-print-directory
