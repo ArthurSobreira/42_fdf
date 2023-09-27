@@ -2,15 +2,16 @@ NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 # Colors Definition 
-GREEN = "\033[32m"
-RED = "\033[31m"
-VIOLATE = "\033[38;5;208m"
+GREEN = "\033[32;4m"
+RED = "\033[31;1m"
+CYAN = "\033[36;1;3;208m"
 COLOR_LIMITER = "\033[0m"
 
 # ===========================================================================
 # ================================= LIBFT ===================================
 # ===========================================================================
 
+LIB_NAME = Libft 
 LIB_SOURCES_PATH = ./libft/src/
 LIB_HEADER_PATH = ./
 LIB_BIN_PATH = ./libft/bin/
@@ -66,6 +67,7 @@ LIB_OBJECTS = $(addprefix $(LIB_BIN_PATH), $(LIB_SOURCES:%.c=%.o))
 # ============================ GET NEXT LINE ================================
 # ===========================================================================
 
+GNL_NAME = GNL   
 GNL_SOURCES_PATH = ./get_next_line/src/
 GNL_HEADER_PATH = ./get_next_line/includes/
 GNL_BIN_PATH = ./get_next_line/bin/
@@ -80,6 +82,7 @@ GNL_OBJECTS = $(addprefix $(GNL_BIN_PATH), $(GNL_SOURCES:%.c=%.o))
 # ============================= FT_PRINTF ===================================
 # ===========================================================================
 
+PRINTF_NAME = Printf
 PRINTF_SOURCES_PATH = ./ft_printf/src/
 PRINTF_HEADER_PATH = ./ft_printf/includes/
 PRINTF_BIN_PATH = ./ft_printf/bin/
@@ -104,9 +107,9 @@ $(LIB_BIN_PATH)%.o: $(LIB_SOURCES_PATH)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB_HEADER_PATH)
 
 $(NAME): $(LIB_OBJECTS)
-	@echo $(VIOLATE) --------------------------------------- $(COLOR_LIMITER)
-	@echo $(VIOLATE)"| libft.a Was Generated Successfully!! |"$(COLOR_LIMITER)
-	@echo $(VIOLATE) --------------------------------------- $(COLOR_LIMITER)
+	@echo $(CYAN)" ---------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"|  $(LIB_NAME)  Was Compiled Successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"---------------------------------------"$(COLOR_LIMITER)
 	@echo " "
 	@ar rcs $(NAME) $?
 
@@ -115,6 +118,7 @@ $(LIB_BIN_PATH):
 
 get_next_line:
 	@make --no-print-directory \
+	LIB_NAME="$(GNL_NAME)" \
 	LIB_BIN_PATH="$(GNL_BIN_PATH)" \
 	LIB_SOURCES_PATH="$(GNL_SOURCES_PATH)" \
 	LIB_OBJECTS="$(GNL_OBJECTS)" \
@@ -122,6 +126,7 @@ get_next_line:
 
 ft_printf:
 	@make --no-print-directory \
+	LIB_NAME="$(PRINTF_NAME)" \
 	LIB_BIN_PATH="$(PRINTF_BIN_PATH)" \
 	LIB_SOURCES_PATH="$(PRINTF_SOURCES_PATH)" \
 	LIB_OBJECTS="$(PRINTF_OBJECTS)" \
