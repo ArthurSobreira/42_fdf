@@ -1,6 +1,6 @@
 NAME = fdf
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -O3 -g3 -Wall -Wextra -Werror
 
 all: libft $(NAME)
 
