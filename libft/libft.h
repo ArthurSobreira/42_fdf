@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:05:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/25 15:40:14 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:14:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <unistd.h>
 
 // Printf header
-#include "./ft_printf/includes/ft_printf.h"
+# include "./ft_printf/includes/ft_printf.h"
 
 // Get_next_line header
-#include "./get_next_line/includes/get_next_line.h"
+# include "./get_next_line/includes/get_next_line.h"
 
 // Struct for linked list
 typedef struct s_list
