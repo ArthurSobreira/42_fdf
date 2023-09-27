@@ -133,13 +133,13 @@ ft_printf:
 	LIB_HEADER_PATH="$(PRINTF_HEADER_PATH)"
 	
 clean:
-	@echo $(RED)[Removing Objects...]$(COLOR_LIMITER)
+	@echo $(RED)[Removing Objects]$(COLOR_LIMITER)
 	@rm -rf $(LIB_BIN_PATH)
 	@rm -rf $(GNL_BIN_PATH)
 	@rm -rf $(PRINTF_BIN_PATH)
 
 fclean: clean
-	@echo $(RED)[Removing $(NAME)...]$(COLOR_LIMITER)
+	@echo $(RED)[Removing $(NAME)]$(COLOR_LIMITER)
 	@rm -f $(NAME)
 
 re: fclean all
