@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/27 14:48:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:50:05 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,13 @@ int	handle_keypress(int key, t_data *data)
 	return (0);
 }
 
+int	close_mlx(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	data->win_ptr = NULL;
+	return (0);
+}
+
 int main(void)
 {
 	t_data	data;
@@ -178,6 +185,11 @@ int main(void)
 	
 	// Setup hooks
 	mlx_loop_hook(data.mlx_ptr, &handle_keypress, &data);
+
+	// Hook for close window
+	mlx_hook(data.win_ptr, DestroyNotify, ButtonReleaseMask, close_mlx, &data);	
+	
+	// Hook for keypress
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);	
 
 	// Setup Loop
@@ -189,3 +201,4 @@ int main(void)
 
 	return (0);
 }
+
