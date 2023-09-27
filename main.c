@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/27 17:50:05 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:19:06 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ int main(void)
 	if (data.mlx_ptr == NULL)
 		return (MLX_ERROR);
 	
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "fdf");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "fdf - 42");
 	// Error Verification
 	if (data.win_ptr == NULL)
 	{
