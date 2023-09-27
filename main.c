@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/26 16:53:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:48:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #define MLX_ERROR 1
 #define RED_PIXEL 0xff0000
 #define BLUE_PIXEL 0x0000ff
+#define GREEN_PIXEL 0x00ff00
 
 typedef struct s_data
 {
@@ -33,25 +34,18 @@ typedef	struct s_rect
     int color;
 }		t_rect;
 
-int	handle_keypress(int key, t_data *data)
-{
-	if (key == XK_Escape)
-	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
-	}
-	return (0);
-}
-
-int	render_x(t_data *data)
+int	render_x(t_data *data, int iter)
 {
 	int	index;
 
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
 	{
+		// Clear the window if there is anything on it
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+
 		index = 0;
-		while (index <= 200)
+		while (index <= iter)
 		{
 			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
 			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2) + index, (BLUE_PIXEL * (index + 10)));
@@ -67,6 +61,32 @@ int	render_x(t_data *data)
 	return (0);
 }
 
+int	render_plus(t_data *data, int iter)
+{
+	int	index;
+
+	if (data->win_ptr != NULL)
+	{
+		// Clear the window if there is anything on it
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+
+		index = 0;
+		while (index <= iter)
+		{
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
+			(WINDOW_WIDTH / 2) + index, (WINDOW_HEIGHT / 2), (BLUE_PIXEL * (index + 10)));
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
+			(WINDOW_WIDTH / 2) - index, (WINDOW_HEIGHT / 2), (BLUE_PIXEL * (index + 10)));
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
+			(WINDOW_WIDTH / 2), (WINDOW_HEIGHT / 2) + index, (BLUE_PIXEL * (index + 10)));
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, \
+			(WINDOW_WIDTH / 2), (WINDOW_HEIGHT / 2) - index, (BLUE_PIXEL * (index + 10)));			
+			index++;
+		}
+	}
+	return (0);
+}
+
 int	render_rect(t_data *data, t_rect rect)
 {
 	int	i;
@@ -74,6 +94,10 @@ int	render_rect(t_data *data, t_rect rect)
 
 	if (data->win_ptr == NULL)
         return (1);
+		
+	// Clear the window if there is anything on it
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+
     i = rect.y;
     while (i < rect.y + rect.height)
     {
@@ -93,28 +117,45 @@ void	render_background(t_data *data, int color)
 	int	x;
 	int	y;
 	
-	if (data->win_ptr == NULL)
-		return ;
-	
-	y = 0;
-	while (y < WINDOW_HEIGHT)
+	if (data->win_ptr != NULL)
 	{
-		x = 0;
-		while (x < WINDOW_WIDTH)
+		// Clear the window if there is anything on it
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		
+		y = 0;
+		while (y < WINDOW_HEIGHT)
 		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
-			x++;
+			x = 0;
+			while (x < WINDOW_WIDTH)
+			{
+				mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
+				x++;
+			}
+			++y;
 		}
-		++y;
-	}
+	}	
 }
 
-int	render(t_data *data)
+int	handle_keypress(int key, t_data *data)
 {
-	//render_background(data, 0x2e2e2e);
-	render_x(data);
-	// render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
-    //         120, 120, RED_PIXEL});
+	if (key == XK_Escape)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
+	}
+	else if (key == XK_Up)
+		render_x(data, 200);
+	else if (key == XK_Down)
+		render_x(data, 100);
+	else if (key == XK_Right)
+		render_plus(data, 200);
+	else if (key == XK_Left)
+		render_plus(data, 100);
+	else if (key == XK_1)
+		render_background(data, 0x00FF00);
+	else if (key == XK_2)
+		render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
+		120, 120, RED_PIXEL});
 	return (0);
 }
 
@@ -136,7 +177,7 @@ int main(void)
 	}
 	
 	// Setup hooks
-	mlx_loop_hook(data.mlx_ptr, &render, &data);
+	mlx_loop_hook(data.mlx_ptr, &handle_keypress, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);	
 
 	// Setup Loop
