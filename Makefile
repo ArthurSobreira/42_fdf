@@ -28,4 +28,6 @@ fclean: rm_test
 	@make fclean -C ./libft --no-print-directory
 	@make clean -C ./minilibx --no-print-directory
 
+re: fclean all
+
 .PHONY: clean fclean libft mlx
