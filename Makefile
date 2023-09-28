@@ -1,22 +1,24 @@
 NAME = fdf
 CC = clang
 CFLAGS = -O3 -g3 -Wall -Wextra -Werror
+LIB_PATH = ./libft
+MLX_PATH = ./minilibx
 
-all: libft $(NAME)
+all: mlx libft $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) main.c -L ./libft -L ./minilibx -lX11 -lXext -lmlx -o $(NAME)
+	$(CC) $(CFLAGS) main.c -L $(LIB_PATH) -L $(MLX_PATH) -lX11 -lXext -lmlx -o $(NAME)
 
 libft:
-	@make -C ./libft --no-print-directory
-	@make get_next_line -C ./libft --no-print-directory
-	@make ft_printf -C ./libft --no-print-directory
+	@make -C $(LIB_PATH) --no-print-directory
+	@make get_next_line -C $(LIB_PATH) --no-print-directory
+	@make ft_printf -C $(LIB_PATH) --no-print-directory
 
 mlx:
-	@make -C ./minilibx --no-print-directory
+	@make -C $(MLX_PATH) --no-print-directory
 
 run: all
-	@./fdf
+	@./$(NAME)
 
 valgrind: all
 	@valgrind --leak-check=full \
@@ -24,7 +26,7 @@ valgrind: all
 	--trace-children=yes \
 	--track-origins=yes \
 	--error-exitcode=1 \
-	--log-file=valgrind.log ./fdf
+	--log-file=valgrind.log ./$(NAME)
 
 # clean:
 # 	@make clean -C ./libft --no-print-directory
@@ -33,9 +35,9 @@ rm_test:
 	@rm -rf $(NAME)
 
 fclean: rm_test
-	@make fclean -C ./libft --no-print-directory
-	@make clean -C ./minilibx --no-print-directory
+	@make fclean -C $(LIB_PATH) --no-print-directory
+	@make clean -C $(MLX_PATH) --no-print-directory
 
 re: fclean all
 
-.PHONY: clean fclean libft mlx valgrind
+.PHONY: all clean fclean re libft mlx valgrind
