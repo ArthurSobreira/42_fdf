@@ -6,13 +6,11 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:34:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/27 19:19:06 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:30:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fdf.h"
-#include <X11/X.h>
-#include <X11/keysym.h>
 
 #define MLX_ERROR 1
 #define RED_PIXEL 0xff0000
@@ -159,7 +157,7 @@ int	handle_keypress(int key, t_data *data)
 	return (0);
 }
 
-int	close_mlx(t_data *data)
+int	close_window(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	data->win_ptr = NULL;
@@ -187,7 +185,7 @@ int main(void)
 	mlx_loop_hook(data.mlx_ptr, &handle_keypress, &data);
 
 	// Hook for close window
-	mlx_hook(data.win_ptr, DestroyNotify, ButtonReleaseMask, close_mlx, &data);	
+	mlx_hook(data.win_ptr, DestroyNotify, ButtonReleaseMask, close_window, &data);	
 	
 	// Hook for keypress
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);	
