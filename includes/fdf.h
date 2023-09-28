@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/27 19:11:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:14:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
