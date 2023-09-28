@@ -28,6 +28,9 @@ valgrind: all
 	--error-exitcode=1 \
 	--log-file=valgrind.log ./$(NAME)
 
+show_leaks:
+	@cat valgrind.log
+
 # clean:
 # 	@make clean -C ./libft --no-print-directory
 
