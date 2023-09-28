@@ -1,0 +1,18 @@
+==71702== Memcheck, a memory error detector
+==71702== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==71702== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==71702== Command: ./a.out
+==71702== Parent PID: 71556
+==71702== 
+==71702== 
+==71702== HEAP SUMMARY:
+==71702==     in use at exit: 0 bytes in 0 blocks
+==71702==   total heap usage: 99,186 allocs, 99,186 frees, 2,511,921 bytes allocated
+==71702== 
+==71702== All heap blocks were freed -- no leaks are possible
+==71702== 
+==71702== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
+--71702-- 
+--71702-- used_suppression:      1 X on SUSE11 writev uninit padding /usr/lib/x86_64-linux-gnu/valgrind/default.supp:397
+==71702== 
+==71702== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
