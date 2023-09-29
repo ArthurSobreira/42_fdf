@@ -14,6 +14,14 @@ OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
 all: mlx libft $(BIN_PATH) $(NAME)
 
+libft:
+	@make -C $(LIB_PATH) --no-print-directory
+	@make get_next_line -C $(LIB_PATH) --no-print-directory
+	@make ft_printf -C $(LIB_PATH) --no-print-directory
+
+mlx:
+	@make -C $(MLX_PATH) --no-print-directory
+
 $(BIN_PATH)%.o: $(SOURCES_PATH)%.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER_PATH)
 
@@ -22,14 +30,6 @@ $(NAME): $(OBJECTS)
 
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
-
-libft:
-	@make -C $(LIB_PATH) --no-print-directory
-	@make get_next_line -C $(LIB_PATH) --no-print-directory
-	@make ft_printf -C $(LIB_PATH) --no-print-directory
-
-mlx:
-	@make -C $(MLX_PATH) --no-print-directory
 
 run: all
 	@./$(NAME)
@@ -41,19 +41,14 @@ valgrind: all
 	--track-origins=yes \
 	--log-file=valgrind.log ./fdf
 
-show_leaks:
-	@cat valgrind.log
-
 clean:
-	@make clean -C ./libft --no-print-directory
+	@make clean -C $(LIB_PATH) --no-print-directory
+	@make clean -C $(MLX_PATH) --no-print-directory
 	@rm -rf $(BIN_PATH)
 
-rm_test:
-	@rm -rf $(NAME)
-
-fclean: clean rm_test
+fclean: clean
 	@make fclean -C $(LIB_PATH) --no-print-directory
-	@make clean -C $(MLX_PATH) --no-print-directory
+	@rm -rf $(NAME)
 
 re: fclean all
 
