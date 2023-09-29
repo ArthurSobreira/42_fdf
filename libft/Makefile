@@ -2,9 +2,10 @@ NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 # Colors Definition 
-GREEN = "\033[32;4m"
+GREEN = "\033[32;1m"
 RED = "\033[31;1m"
 CYAN = "\033[36;1;3;208m"
+WHITE = "\033[37;1;4m"
 COLOR_LIMITER = "\033[0m"
 
 # ===========================================================================
@@ -103,8 +104,9 @@ PRINTF_OBJECTS = $(addprefix $(PRINTF_BIN_PATH), $(PRINTF_SOURCES:%.c=%.o))
 all: $(LIB_BIN_PATH) $(NAME)
 
 $(LIB_BIN_PATH)%.o: $(LIB_SOURCES_PATH)%.c
-	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(notdir $(<))...
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB_HEADER_PATH)
+	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(WHITE)$(notdir $(<))...$(COLOR_LIMITER)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB_HEADER_PATH)
+	@echo " "
 
 $(NAME): $(LIB_OBJECTS)
 	@echo $(CYAN)" ---------------------------------------"$(COLOR_LIMITER)
