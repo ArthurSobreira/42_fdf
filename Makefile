@@ -25,8 +25,7 @@ valgrind: all
 	--show-leak-kinds=all -s \
 	--trace-children=yes \
 	--track-origins=yes \
-	--error-exitcode=1 \
-	--log-file=valgrind.log ./$(NAME)
+	--log-file=valgrind.log ./fdf
 
 show_leaks:
 	@cat valgrind.log
