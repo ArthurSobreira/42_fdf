@@ -9,6 +9,7 @@ MLX_NAME = libmlx.a
 HEADER_PATH = ./includes
 SOURCES_PATH = ./src/
 BIN_PATH = ./bin/
+VALGRIND_LOG = valgrind.log
 
 SOURCES = fdf.c
 
@@ -45,7 +46,8 @@ valgrind: all
 	--show-leak-kinds=all -s \
 	--trace-children=yes \
 	--track-origins=yes \
-	--log-file=valgrind.log ./fdf
+	--log-file=$(VALGRIND_LOG) ./fdf
+	@cat $(VALGRIND_LOG) 
 
 clean:
 	@make clean -C $(LIB_PATH) --no-print-directory
@@ -55,6 +57,7 @@ clean:
 fclean: clean
 	@make fclean -C $(LIB_PATH) --no-print-directory
 	@rm -rf $(NAME)
+	@rm -rf $(VALGRIND_LOG)
 
 re: fclean
 	@make --no-print-directory
