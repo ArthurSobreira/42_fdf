@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/29 11:46:20 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:45:27 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,20 +134,10 @@ void	render_background(t_data *data, int color)
 	}	
 }
 
-int	close_window(t_data *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	data->win_ptr = NULL;
-	return (1);
-}
-
 int	handle_keypress(int key, t_data *data)
 {
 	if (key == XK_Escape)
-	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
-	}
+		mlx_loop_end(data->mlx_ptr);
 	else if (key == XK_Up)
 		render_x(data, 200);
 	else if (key == XK_Down)
@@ -181,20 +171,19 @@ int main(void)
 		return (MLX_ERROR);
 	}
 	
-	// Setup hooks
-	mlx_loop_hook(data.mlx_ptr, &handle_keypress, &data);
+	// Hook for keypress
+	mlx_key_hook(data.win_ptr, &handle_keypress, &data);
 
 	// Hook for close window
-	mlx_hook(data.win_ptr, DestroyNotify, ButtonReleaseMask, close_window, &data);	
+	mlx_hook(data.win_ptr, DestroyNotify, ButtonReleaseMask, mlx_loop_end, data.mlx_ptr);	
 	
-	// Hook for keypress
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);	
-
 	// Setup Loop
 	mlx_loop(data.mlx_ptr);
 
 	// Exit the loop if there's no window left
+	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
 	mlx_destroy_display(data.mlx_ptr);
+	data.win_ptr = NULL;
 	free(data.mlx_ptr);
 
 	return (0);
