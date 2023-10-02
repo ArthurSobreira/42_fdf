@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/02 11:39:38 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/02 11:44:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ int main(void)
 	// Setup Loop
 	mlx_loop(data.mlx_ptr);
 
-	// Clear the window if there is anything on it
+	// Clear the display and free the memory
 	clear_all(&data);
 
 	return (0);
