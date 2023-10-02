@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/02 10:45:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:53:21 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ int	render_x(t_data *data, int iter)
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
 	{
-		// Clear the window if there is anything on it
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-
 		index = 0;
 		while (index <= iter)
 		{
@@ -63,11 +60,9 @@ int	render_plus(t_data *data, int iter)
 {
 	int	index;
 
+	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
 	{
-		// Clear the window if there is anything on it
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-
 		index = 0;
 		while (index <= iter)
 		{
@@ -92,9 +87,6 @@ int	render_rect(t_data *data, t_rect rect)
 
 	if (data->win_ptr == NULL)
         return (1);
-		
-	// Clear the window if there is anything on it
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 
     i = rect.y;
     while (i < rect.y + rect.height)
@@ -115,11 +107,9 @@ void	render_background(t_data *data, int color)
 	int	x;
 	int	y;
 	
+	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
-	{
-		// Clear the window if there is anything on it
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		
+	{	
 		y = 0;
 		while (y < WINDOW_HEIGHT)
 		{
@@ -136,6 +126,9 @@ void	render_background(t_data *data, int color)
 
 int	handle_keypress(int key, t_data *data)
 {
+	// Clear the window if there is anything on it
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+
 	if (key == XK_Escape)
 		mlx_loop_end(data->mlx_ptr);
 	else if (key == XK_Up)
