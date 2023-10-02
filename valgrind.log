@@ -1,48 +1,18 @@
-==226684== Memcheck, a memory error detector
-==226684== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==226684== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==226684== Command: ./fdf
-==226684== Parent PID: 226461
-==226684== 
-==226684== Invalid read of size 8
-==226684==    at 0x401E6D: mlx_loop (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x4018BA: main (main.c:194)
-==226684==  Address 0x4c27678 is 872 bytes inside a block of size 936 free'd
-==226684==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==226684==    by 0x40214C: mlx_destroy_window (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x40169F: close_window (main.c:139)
-==226684==    by 0x401E59: mlx_loop (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x4018BA: main (main.c:194)
-==226684==  Block was alloc'd at
-==226684==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==226684==    by 0x401C07: mlx_new_window (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x401859: main (main.c:176)
-==226684== 
-==226684== 
-==226684== HEAP SUMMARY:
-==226684==     in use at exit: 0 bytes in 0 blocks
-==226684==   total heap usage: 164,508 allocs, 164,508 frees, 4,079,703 bytes allocated
-==226684== 
-==226684== All heap blocks were freed -- no leaks are possible
-==226684== 
-==226684== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 1 from 1)
-==226684== 
-==226684== 1 errors in context 1 of 1:
-==226684== Invalid read of size 8
-==226684==    at 0x401E6D: mlx_loop (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x4018BA: main (main.c:194)
-==226684==  Address 0x4c27678 is 872 bytes inside a block of size 936 free'd
-==226684==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==226684==    by 0x40214C: mlx_destroy_window (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x40169F: close_window (main.c:139)
-==226684==    by 0x401E59: mlx_loop (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x4018BA: main (main.c:194)
-==226684==  Block was alloc'd at
-==226684==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==226684==    by 0x401C07: mlx_new_window (in /nfs/homes/arsobrei/Projects/42_cursus/projects/fdf/fdf)
-==226684==    by 0x401859: main (main.c:176)
-==226684== 
---226684-- 
---226684-- used_suppression:      1 X on SUSE11 writev uninit padding /usr/lib/x86_64-linux-gnu/valgrind/default.supp:397
-==226684== 
-==226684== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 1 from 1)
+==31163== Memcheck, a memory error detector
+==31163== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31163== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==31163== Command: ./fdf
+==31163== Parent PID: 31162
+==31163== 
+==31163== 
+==31163== HEAP SUMMARY:
+==31163==     in use at exit: 0 bytes in 0 blocks
+==31163==   total heap usage: 580 allocs, 580 frees, 120,103 bytes allocated
+==31163== 
+==31163== All heap blocks were freed -- no leaks are possible
+==31163== 
+==31163== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
+--31163-- 
+--31163-- used_suppression:      1 X on SUSE11 writev uninit padding /usr/lib/x86_64-linux-gnu/valgrind/default.supp:397
+==31163== 
+==31163== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)
