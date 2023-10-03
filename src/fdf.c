@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/03 12:14:11 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:44:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,41 @@ typedef	struct s_rect
 
 void	pixel_put(t_data *data, int x, int y, int color)
 {
-	char	*dst;
+	char	*pixel;
 
-	dst = data->img.adress + (y * data->img.line_length + x * (data->img.bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	pixel = data->img.adress + (y * data->img.line_length + x * (data->img.bits_per_pixel / 8));
+	*(unsigned int*)pixel = color;
+}
+
+void	clear_window(t_data *data)
+{
+	int	x;
+	int	y;
+
+	// Verify if window has been destroyed
+	if (data->win_ptr != NULL)
+	{	
+		y = 0;
+		while (y < WINDOW_HEIGHT)
+		{
+			x = 0;
+			while (x < WINDOW_WIDTH)
+			{
+				pixel_put(data, x, y, 0x363636);
+				x++;
+			}
+			++y;
+		}
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
+	}
 }
 
 int	render_x(t_data *data, int iter, int color)
 {
 	int	index;
+
+	// Clear the window if there is anything on it
+	clear_window(data);
 
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
@@ -70,13 +96,15 @@ int	render_x(t_data *data, int iter, int color)
 		while (index++ <= iter)
 			pixel_put(data, ((WINDOW_WIDTH / 2) - index), ((WINDOW_HEIGHT / 2) - index), (color * (index + 10)));			
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
 	return (0);
 }
 
 int	render_plus(t_data *data, int iter, int color)
 {
 	int	index;
+
+	// Clear the window if there is anything on it
+	clear_window(data);
 
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
@@ -94,7 +122,6 @@ int	render_plus(t_data *data, int iter, int color)
 		while (index++ <= iter)
 			pixel_put(data, (WINDOW_WIDTH / 2), ((WINDOW_HEIGHT / 2) - index), (color * (index + 10)));			
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
 	return (0);
 }
 
@@ -105,6 +132,9 @@ int	render_rect(t_data *data, t_rect rect)
 
 	if (data->win_ptr == NULL)
         return (1);
+
+	// Clear the window if there is anything on it
+	clear_window(data);
 
     i = rect.y;
     while (i < rect.y + rect.height)
@@ -117,7 +147,6 @@ int	render_rect(t_data *data, t_rect rect)
 		}
         ++i;
     }
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
 	return (0);
 }
 
@@ -126,6 +155,9 @@ void	render_background(t_data *data, int color)
 	int	x;
 	int	y;
 	
+	// Clear the window if there is anything on it
+	clear_window(data);
+
 	// Verify if window has been destroyed
 	if (data->win_ptr != NULL)
 	{	
@@ -144,34 +176,8 @@ void	render_background(t_data *data, int color)
 	}	
 }
 
-void	clear_window(t_data *data)
-{
-	int	x;
-	int	y;
-	
-	// Verify if window has been destroyed
-	if (data->win_ptr != NULL)
-	{	
-		y = 0;
-		while (y < WINDOW_HEIGHT)
-		{
-			x = 0;
-			while (x < WINDOW_WIDTH)
-			{
-				pixel_put(data, x, y, 0x000000);
-				x++;
-			}
-			++y;
-		}
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
-	}	
-}
-
 int	handle_keypress(int key, t_data *data)
 {
-	// Clear the window if there is anything on it
-	clear_window(data);
-
 	if (key == XK_Escape)
 		mlx_loop_end(data->mlx_ptr);
 	else if (key == XK_Up)
@@ -187,8 +193,7 @@ int	handle_keypress(int key, t_data *data)
 	else if (key == XK_2)
 		render_rect(data, (t_rect){((WINDOW_WIDTH / 2) - 75), ((WINDOW_HEIGHT / 2) - 75),
 		120, 120, RED_PIXEL});
-	else
-		return (1);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_image, 0, 0);
 	return (0);
 }
 
@@ -230,6 +235,9 @@ int main(void)
 	*/
 	data.img.adress = mlx_get_data_addr(data.img.mlx_image, &data.img.bits_per_pixel, \
 										&data.img.line_length, &data.img.endian);
+
+	// Coloring the background
+	render_background(&data, 0x363636);
 
 	// Hook for keypress
 	mlx_key_hook(data.win_ptr, &handle_keypress, &data);
