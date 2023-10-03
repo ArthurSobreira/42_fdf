@@ -11,7 +11,7 @@ SOURCES_PATH = ./src/
 BIN_PATH = ./bin/
 VALGRIND_LOG = valgrind.log
 
-SOURCES = fdf.c
+SOURCES = test.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
