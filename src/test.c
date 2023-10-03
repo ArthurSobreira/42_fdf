@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/03 17:54:08 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:15:01 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 #define RED_PIXEL 0xff0000
 #define BLUE_PIXEL 0x0000ff
 #define GREEN_PIXEL 0x00ff00
-
-typedef struct s_image
-{
-	void	*mlx_image;
-	char	*adress;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_image;
-
-typedef struct s_data
-{
-    void    *mlx_ptr;
-    void    *win_ptr;
-	t_image	img;
-}           t_data;
 
 typedef	struct s_rect
 {
@@ -41,7 +25,7 @@ typedef	struct s_rect
     int color;
 }		t_rect;
 
-void	pixel_put(t_data *data, int x, int y, int color)
+void	pixel_put(t_fdf *data, int x, int y, int color)
 {
 	char	*pixel;
 
@@ -49,7 +33,7 @@ void	pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)pixel = color;
 }
 
-void	clear_window(t_data *data)
+void	clear_window(t_fdf *data)
 {
 	int	x;
 	int	y;
@@ -72,7 +56,7 @@ void	clear_window(t_data *data)
 	}
 }
 
-int	render_x(t_data *data, int iter, int color)
+int	render_x(t_fdf *data, int iter, int color)
 {
 	int	index;
 
@@ -98,7 +82,7 @@ int	render_x(t_data *data, int iter, int color)
 	return (0);
 }
 
-int	render_plus(t_data *data, int iter, int color)
+int	render_plus(t_fdf *data, int iter, int color)
 {
 	int	index;
 
@@ -124,7 +108,7 @@ int	render_plus(t_data *data, int iter, int color)
 	return (0);
 }
 
-int	render_rect(t_data *data, t_rect rect)
+int	render_rect(t_fdf *data, t_rect rect)
 {
 	int	i;
 	int	j;
@@ -149,7 +133,7 @@ int	render_rect(t_data *data, t_rect rect)
 	return (0);
 }
 
-void	render_background(t_data *data, int color)
+void	render_background(t_fdf *data, int color)
 {
 	int	x;
 	int	y;
@@ -175,7 +159,7 @@ void	render_background(t_data *data, int color)
 	}	
 }
 
-int	handle_keypress(int key, t_data *data)
+int	handle_keypress(int key, t_fdf *data)
 {
 	if (key == XK_Escape)
 		mlx_loop_end(data->mlx_ptr);
@@ -196,7 +180,7 @@ int	handle_keypress(int key, t_data *data)
 	return (0);
 }
 
-void	clear_all(t_data *data)
+void	clear_all(t_fdf *data)
 {
 	mlx_destroy_image(data->mlx_ptr, data->img.mlx_image);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
@@ -207,13 +191,13 @@ void	clear_all(t_data *data)
 
 int main(void)
 {
-	t_data	data;
+	t_fdf	data;
 
 	data.mlx_ptr = mlx_init();
 	
 	// Error Verification
 	if (data.mlx_ptr == NULL)
-		return (MLX_ERROR);
+		return (1);
 	
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "fdf - 42");
 	
@@ -221,14 +205,14 @@ int main(void)
 	if (data.win_ptr == NULL)
 	{
 		free (data.win_ptr);
-		return (MLX_ERROR);
+		return (1);
 	}
 	
 	// Create the image
 	data.img.mlx_image = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	
 	/*
-	** After creating an image, we can call `mlx_get_data_addr`, we pass
+	** After creating an image, we can call `mlx_get_fdf_addr`, we pass
 	** `bits_per_pixel`, `line_length`, and `endian` by reference. These will
 	** then be set accordingly for the *current* data address.
 	*/
