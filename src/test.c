@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/03 12:44:04 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:21:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	clear_window(t_data *data)
 			x = 0;
 			while (x < WINDOW_WIDTH)
 			{
-				pixel_put(data, x, y, 0x363636);
+				pixel_put(data, x, y, 0x1a1a1a);
 				x++;
 			}
 			++y;
@@ -237,7 +237,7 @@ int main(void)
 										&data.img.line_length, &data.img.endian);
 
 	// Coloring the background
-	render_background(&data, 0x363636);
+	render_background(&data, 0x1a1a1a);
 
 	// Hook for keypress
 	mlx_key_hook(data.win_ptr, &handle_keypress, &data);
