@@ -11,7 +11,19 @@ SOURCES_PATH = ./src/
 BIN_PATH = ./bin/
 VALGRIND_LOG = valgrind.log
 
-SOURCES = test.c
+# Colors Definition 
+GREEN = "\033[32;1m"
+RED = "\033[31;1m"
+CYAN = "\033[36;1;3;208m"
+WHITE = "\033[37;1;4m"
+COLOR_LIMITER = "\033[0m"
+
+SOURCES = \
+	clear.c \
+	error.c \
+	handle_keys.c \
+	main.c \
+	render.c
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
@@ -30,10 +42,16 @@ ifeq ($(wildcard $(MLX_PATH)/$(MLX_NAME)),)
 endif
 
 $(BIN_PATH)%.o: $(SOURCES_PATH)%.c
+	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(WHITE)$(notdir $(<))...$(COLOR_LIMITER)
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER_PATH)
+	@echo " "
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
+	@echo $(CYAN)" --------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"| FDF executable was created successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"--------------------------------------------"$(COLOR_LIMITER)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
+	@echo " "
 
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
@@ -46,7 +64,8 @@ valgrind: all
 	--show-leak-kinds=all -s \
 	--trace-children=yes \
 	--track-origins=yes \
-	--log-file=$(VALGRIND_LOG) ./fdf
+	--log-file=$(VALGRIND_LOG) \
+	./$(NAME) ./maps/42.fdf
 	@cat $(VALGRIND_LOG) 
 
 clean:
