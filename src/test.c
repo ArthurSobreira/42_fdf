@@ -6,13 +6,12 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:14:19 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/03 17:21:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:54:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#define MLX_ERROR 1
 #define RED_PIXEL 0xff0000
 #define BLUE_PIXEL 0x0000ff
 #define GREEN_PIXEL 0x00ff00
