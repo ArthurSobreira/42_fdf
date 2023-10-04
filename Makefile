@@ -20,6 +20,7 @@ COLOR_LIMITER = "\033[0m"
 
 SOURCES = \
 	clear.c \
+	draw.c \
 	error.c \
 	handle_keys.c \
 	main.c \
