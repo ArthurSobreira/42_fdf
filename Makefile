@@ -56,9 +56,6 @@ $(NAME): $(OBJECTS)
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
 
-run: all
-	@./$(NAME)
-
 valgrind: all
 	@valgrind --leak-check=full \
 	--show-leak-kinds=all -s \
