@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:00:26 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/04 11:02:24 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:05:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 			&fdf->img.bits_per_pixel, &fdf->img.line_length, &fdf->img.endian);
 	render_background(fdf, 0x1a1a1a);
 	mlx_key_hook(fdf->win_ptr, &handle_keypress, fdf);
-	mlx_hook(fdf->win_ptr, DestroyNotify, NoEventMask, mlx_loop_end,
+	mlx_hook(fdf->win_ptr, DestroyNotify, KeyReleaseMask, mlx_loop_end,
 		fdf->mlx_ptr);
 	mlx_loop(fdf->mlx_ptr);
 	clear_all(fdf);
