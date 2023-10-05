@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/04 18:42:32 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:23:41 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int		handle_keypress(int key, t_fdf *fdf);
 void	clear_all(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
 void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point);
+void	render(t_fdf *fdf);
 
 #endif
