@@ -18,6 +18,7 @@ LIB_HEADER_PATH = ./
 LIB_BIN_PATH = ./libft/bin/
 
 LIB_SOURCES = \
+	ft_abs.c \
 	ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
