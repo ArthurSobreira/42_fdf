@@ -24,7 +24,8 @@ SOURCES = \
 	error.c \
 	handle_keys.c \
 	main.c \
-	render.c
+	render.c \
+	utils.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
