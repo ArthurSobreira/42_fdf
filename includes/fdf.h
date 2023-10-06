@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/05 10:23:41 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:17:29 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 
 typedef struct s_point
 {
-	float	x;
-	float	y;
-	float	z;
+	int	x;
+	int	y;
+	int	z;
 }			t_point;
 
 typedef struct s_img
@@ -45,6 +45,7 @@ typedef struct s_fdf
 	t_img	img;
 }           t_fdf;
 
+void	bresenham2(t_fdf *fdf, t_point start, t_point end);
 
 void	handle_error(short error_code);
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
@@ -53,5 +54,7 @@ void	clear_all(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
 void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point);
 void	render(t_fdf *fdf);
+void	swap(int *a, int *b);
+short	verify_octant(int *dx, int *dy, int *ini_x, int *ini_y);
 
 #endif
