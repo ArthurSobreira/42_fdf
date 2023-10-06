@@ -6,19 +6,32 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/04 10:57:10 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:19:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	pixel_put(t_fdf *fdf, int x, int y, int color)
+void	render(t_fdf *fdf)
 {
-	char	*pixel;
+	render_background(fdf, 0x1a1a1a);
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){(WINDOW_WIDTH / 2), 20, 0});
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){20, (WINDOW_HEIGHT / 2), 0});
+	bresenham2(fdf, (t_point){20, 20, 0}, (t_point){(WINDOW_WIDTH / 2), 20, 0});
+	bresenham2(fdf, (t_point){20, 20, 0}, (t_point){20, (WINDOW_HEIGHT / 2), 0});
+	//bresenham(fdf, (t_point){(WINDOW_WIDTH -  20), 20, 0}, (t_point){(WINDOW_WIDTH / 2), 20, 0});
+	//bresenham(fdf, (t_point){(WINDOW_WIDTH - 20), 20, 0}, (t_point){200, 400, 0});
+	
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){500, 100, 0});
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){500, 200, 0});
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){500, 300, 0});
+	// bresenham(fdf, (t_point){20, 20, 0}, (t_point){500, 400, 0});
 
-	pixel = fdf->img.adress + (y * fdf->img.line_length + x \
-								* (fdf->img.bits_per_pixel / 8));
-	*(unsigned int *)pixel = color;
+	// bresenham(fdf, (t_point){500, 400, 0}, (t_point){899, 20, 0});
+	// bresenham(fdf, (t_point){20, 580, 0}, (t_point){700, 300, 0});
+	// bresenham(fdf, (t_point){20, 580, 0}, (t_point){500, 200, 0});
+	// bresenham(fdf, (t_point){20, 580, 0}, (t_point){500, 100, 0});
+
 }
 
 void	render_background(t_fdf *fdf, int color)
