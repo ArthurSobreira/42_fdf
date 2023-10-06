@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:00:26 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/04 17:29:46 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:23:13 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char *argv[])
 														WINDOW_HEIGHT);
 	fdf->img.adress = mlx_get_data_addr(fdf->img.mlx_image, \
 			&fdf->img.bits_per_pixel, &fdf->img.line_length, &fdf->img.endian);
-	render_background(fdf, 0x1a1a1a);
+	render(fdf);
 	mlx_key_hook(fdf->win_ptr, &handle_keypress, fdf);
 	mlx_hook(fdf->win_ptr, DestroyNotify, KeyReleaseMask, mlx_loop_end,
 		fdf->mlx_ptr);
