@@ -6,13 +6,13 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/06 13:40:50 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:56:50 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	handle_keypress(int key, t_fdf *fdf)
+int	handle_keypress(t_fdf *fdf, int key)
 {
 	render_background(fdf, 0x1a1a1a);
 	
