@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:01:03 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/04 10:58:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:39:55 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	handle_error(short exit_code)
 		ft_printf("\033[31;3mError, unable to allocate mlx :(\033[0m\n");
 	else if (exit_code == 4)
 		ft_printf("\033[31;3mError, unable to allocate window :(\033[0m\n");
+	else if (exit_code == 5)
+		ft_printf("\033[31;3mError, pixel outside window range :(\033[0m\n");
 	exit(exit_code);
 }
