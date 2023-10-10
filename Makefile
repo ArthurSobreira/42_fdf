@@ -24,6 +24,7 @@ SOURCES = \
 	handle_events.c \
 	init.c \
 	main.c \
+	read_map.c \
 	render.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
