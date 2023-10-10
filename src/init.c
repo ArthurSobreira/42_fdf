@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 17:34:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:43:54 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_map	*init_map(void)
 	if (map == NULL)
 		handle_error(7);
 	map->matrix = NULL;
-	map->x_max = 0;
-	map->y_max = 0;
+	map->width = 0;
+	map->height = 0;
 	return (map);
 }
 
