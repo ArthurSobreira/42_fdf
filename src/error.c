@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:01:03 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 13:55:42 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:45:34 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void	handle_error(short exit_code)
 		ft_printf("\033[31;3mError, pixel outside window range :(\033[0m\n");
 	else if (exit_code == 6)
 		ft_printf("\033[31;3mError, unable to use bresenham :(\033[0m\n");
+	else if (exit_code == 7)
+		ft_printf("\033[31;3mError, unable to allocate map :(\033[0m\n");
 	exit(exit_code);
 }
