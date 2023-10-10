@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 13:39:03 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:10:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,14 @@ typedef struct s_bres
 	int		decision;
 	int		x_increment;
 	int		y_increment;
-}		t_bres;
+}			t_bres;
+
+typedef struct s_map
+{
+	t_point	**matrix;
+	int		x_max;
+	int		y_max;
+}			t_map;
 
 typedef struct s_img
 {
@@ -54,10 +61,11 @@ typedef struct s_img
 
 typedef struct s_fdf
 {
-    void    *mlx_ptr;
-    void    *win_ptr;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	t_img	img;
-}           t_fdf;
+	t_map	*map;
+}			t_fdf;
 
 void	handle_error(short error_code);
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
@@ -71,5 +79,9 @@ void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point);
 void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point);
 void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point);
 
+t_fdf	*init_fdf(char *map_name);
+t_map	*init_map(void);
+
+t_map	*read_map(char *map_name);
 
 #endif
