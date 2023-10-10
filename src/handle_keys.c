@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/09 18:56:50 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:44:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	handle_keypress(t_fdf *fdf, int key)
 {
-	render_background(fdf, 0x1a1a1a);
-	
-	if (key == XK_Escape)
+	if (key == KEY_ESC || key == XK_Escape)
+	{
+		ft_printf("ESC pressed\n");
 		mlx_loop_end(fdf->mlx_ptr);
+		clear_all(fdf);
+	}
 	return (0);
 }
