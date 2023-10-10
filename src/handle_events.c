@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 13:57:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:06:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	clear_all(t_fdf *fdf)
 	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
 	mlx_destroy_display(fdf->mlx_ptr);
 	free(fdf->mlx_ptr);
-	fdf->win_ptr = NULL;
+	free(fdf->map);
 	free(fdf);
 	handle_error(0);
 }
