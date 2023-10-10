@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 16:10:04 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:30:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
+# include <fcntl.h>
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
