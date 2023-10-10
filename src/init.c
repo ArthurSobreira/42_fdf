@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 17:05:34 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:34:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ t_fdf	*init_fdf(char *map_name)
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	if (fdf == NULL)
 		handle_error(2);
+	fdf->map = read_map(map_name);
+	if (fdf->map == NULL)
+		handle_error(7);
 	fdf->mlx_ptr = mlx_init();
 	if (fdf->mlx_ptr == NULL)
 		handle_error(3);
@@ -33,9 +36,6 @@ t_fdf	*init_fdf(char *map_name)
 														WINDOW_HEIGHT);
 	fdf->img.adress = mlx_get_data_addr(fdf->img.mlx_image, \
 			&fdf->img.bits_per_pixel, &fdf->img.line_length, &fdf->img.endian);
-	fdf->map = read_map(map_name);
-	if (fdf->map == NULL)
-		handle_error(7);
 	return (fdf);
 }
 
