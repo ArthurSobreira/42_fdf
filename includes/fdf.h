@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/06 14:17:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:31:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
+# include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 
@@ -24,10 +25,22 @@
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
-	int	z;
+	float	x;
+	float	y;
+	float	z;
+	int		color;
 }			t_point;
+
+typedef struct s_bres
+{
+	float	delta_x;
+	float	delta_y;
+	int		initial_x;
+	int		initial_y;
+	int		decision;
+	int		x_increment;
+	int		y_increment;
+}		t_bres;
 
 typedef struct s_img
 {
@@ -45,16 +58,18 @@ typedef struct s_fdf
 	t_img	img;
 }           t_fdf;
 
-void	bresenham2(t_fdf *fdf, t_point start, t_point end);
-
 void	handle_error(short error_code);
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
-int		handle_keypress(int key, t_fdf *fdf);
+int		handle_keypress(t_fdf *fdf, int key);
 void	clear_all(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
-void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point);
 void	render(t_fdf *fdf);
 void	swap(int *a, int *b);
-short	verify_octant(int *dx, int *dy, int *ini_x, int *ini_y);
+
+void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point);
+void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point);
+void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point);
+void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point);
+
 
 #endif
