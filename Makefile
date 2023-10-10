@@ -23,6 +23,7 @@ SOURCES = \
 	draw.c \
 	error.c \
 	handle_keys.c \
+	init.c \
 	main.c \
 	render.c \
 	utils.c \
