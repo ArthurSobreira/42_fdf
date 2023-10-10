@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 11:12:49 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:41:53 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
 # define WINDOW_NAME "FDF - 42"
+
+# define KEY_ESC    65307
 
 typedef struct s_point
 {
