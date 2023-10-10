@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:07 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/06 14:16:44 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:16:37 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,84 +16,78 @@ void	pixel_put(t_fdf *fdf, int x, int y, int color)
 {
 	char	*pixel;
 
+	if ((x < 0) || (y < 0) || (x > WINDOW_WIDTH) || (y > WINDOW_HEIGHT))
+		handle_error(5);
 	pixel = fdf->img.adress + (y * fdf->img.line_length + x \
-								* (fdf->img.bits_per_pixel / 8));
+								 * (fdf->img.bits_per_pixel / 8));
 	*(unsigned int *)pixel = color;
 }
 
-float	max(float a, float b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-void	bresenham2(t_fdf *fdf, t_point start, t_point end)
-{
-	float	x_step;
-	float	y_step;
-	int		max_steps;
-	int		i_line;
-
-	x_step = end.x - start.x;
-	y_step = end.y - start.y;
-	max_steps = (int)max(ft_abs(x_step), ft_abs(y_step));
-	x_step /= max_steps;
-	y_step /= max_steps;
-	i_line = 0;
-	while (i_line++ < max_steps)
-	{
-		if (start.x > 0 && start.y > 0 && start.x < WINDOW_WIDTH && start.y < \
-				WINDOW_HEIGHT)
-			pixel_put(fdf, start.x, start.y, (0xffffff * (i_line / 4)));
-		start.x += x_step;
-		start.y += y_step;
-	}
-	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.mlx_image, 0, 0);
-}
-
 void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point)
-{	
-	int	delta_y;
-	int	delta_x;
-	int	initial_x;
-	int	initial_y;
-	int	error;
-	int	x_increment;
-	int	y_increment;
-	int	verify;
+{
+	float	temp_delta_x;
+	float	temp_delta_y;
 
-	delta_x = ft_abs(end_point.x - inital_point.x);
-	delta_y = ft_abs(end_point.y - inital_point.y);
-	initial_x = inital_point.x;
-	initial_y = inital_point.y;
-	error = 0;
-
-	if (end_point.x >= inital_point.x)
-		x_increment = 1;
-	else
-		x_increment = -1;
-	
-	if (end_point.y >= inital_point.y)
-		y_increment = 1;
-	else
-		y_increment = -1;
-	
-	verify = verify_octant(&delta_x, &delta_y, &initial_x, &initial_y);
-
-	while ((initial_x <= end_point.x) && (initial_y <= end_point.y))
+	temp_delta_x = end_point.x - inital_point.x;
+	temp_delta_y = end_point.y - inital_point.y;
+	if (ft_abs(temp_delta_x) > ft_abs(temp_delta_y))
 	{
-		if (verify)
-			pixel_put(fdf, initial_y, initial_x, (0xffffff * (initial_x / 4)));
+		if (inital_point.x > end_point.x)
+			bresenham_low(fdf, end_point, inital_point);
 		else
-			pixel_put(fdf, initial_x, initial_y, (0xffffff * (initial_x / 4)));
-		initial_x += x_increment;
-		error += (2 * delta_y);
-		if (error >= delta_x)
-		{
-			initial_y += y_increment;
-			error -= (2 * delta_x);
-		}
+			bresenham_low(fdf, inital_point, end_point);
 	}
-	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.mlx_image, 0, 0);
+	else
+	{
+		if (inital_point.y > end_point.y)
+			bresenham_high(fdf, end_point, inital_point);
+		else
+			bresenham_high(fdf, inital_point, end_point);
+	}
+}
+
+void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point)
+{
+	t_bres	bres;
+
+	init_bres(&bres, initial_point, end_point);
+	bres.decision = (2 * bres.delta_y) - bres.delta_x;
+	while (bres.initial_x <= end_point.x)
+	{
+		if ((bres.initial_x >= 0) && (bres.initial_y >= 0) && \
+		(bres.initial_x < WINDOW_WIDTH) && (bres.initial_y < WINDOW_HEIGHT))
+			pixel_put(fdf, bres.initial_x, bres.initial_y, \
+								(initial_point.color * (bres.initial_y / 4)));
+		if (bres.decision > 0)
+		{
+			bres.initial_y += bres.y_increment;
+			bres.decision += (2 * (bres.delta_y - bres.delta_x));
+		}
+		else
+			bres.decision += (2 * bres.delta_y);
+		bres.initial_x++;
+	}
+}
+
+void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point)
+{
+	t_bres	bres;
+
+	init_bres(&bres, initial_point, end_point);
+	bres.decision = (2 * bres.delta_x) - bres.delta_y;
+	while (bres.initial_y <= end_point.y)
+	{
+		if ((bres.initial_x >= 0) && (bres.initial_y >= 0) && \
+		(bres.initial_x < WINDOW_WIDTH) && (bres.initial_y < WINDOW_HEIGHT))
+			pixel_put(fdf, bres.initial_x, bres.initial_y, \
+								(initial_point.color * (bres.initial_y / 4)));
+		if (bres.decision > 0)
+		{
+			bres.initial_x += bres.x_increment;
+			bres.decision += (2 * (bres.delta_x - bres.delta_y));
+		}
+		else
+			bres.decision += (2 * bres.delta_x);
+		bres.initial_y++;
+	}
 }
