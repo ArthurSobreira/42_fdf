@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 11:14:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 11:31:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	render(t_fdf *fdf)
 {
 	render_background(fdf, 0x1a1a1a);
-	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img.mlx_image, 0, 0);
 }
 
 void	render_background(t_fdf *fdf, int color)
