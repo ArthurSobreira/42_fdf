@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 17:30:49 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:43:12 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef struct s_bres
 typedef struct s_map
 {
 	t_point	**matrix;
-	int		x_max;
-	int		y_max;
+	int		width;
+	int		height;
 }			t_map;
 
 typedef struct s_img
