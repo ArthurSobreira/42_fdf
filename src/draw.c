@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:07 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 13:55:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:05:32 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point)
 		if ((bres.initial_x >= 0) && (bres.initial_y >= 0) && \
 		(bres.initial_x < WINDOW_WIDTH) && (bres.initial_y < WINDOW_HEIGHT))
 			pixel_put(fdf, bres.initial_x, bres.initial_y, \
-								(initial_point.color * (bres.initial_y / 4)));
+										initial_point.color);
 		if (bres.decision > 0)
 		{
 			bres.initial_y += bres.y_increment;
@@ -80,7 +80,7 @@ void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point)
 		if ((bres.initial_x >= 0) && (bres.initial_y >= 0) && \
 		(bres.initial_x < WINDOW_WIDTH) && (bres.initial_y < WINDOW_HEIGHT))
 			pixel_put(fdf, bres.initial_x, bres.initial_y, \
-								(initial_point.color * (bres.initial_y / 4)));
+										initial_point.color);
 		if (bres.decision > 0)
 		{
 			bres.initial_x += bres.x_increment;
