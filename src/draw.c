@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:07 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 11:16:37 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:47:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pixel_put(t_fdf *fdf, int x, int y, int color)
 	if ((x < 0) || (y < 0) || (x > WINDOW_WIDTH) || (y > WINDOW_HEIGHT))
 		handle_error(5);
 	pixel = fdf->img.adress + (y * fdf->img.line_length + x \
-								 * (fdf->img.bits_per_pixel / 8));
+								* (fdf->img.bits_per_pixel / 8));
 	*(unsigned int *)pixel = color;
 }
 
