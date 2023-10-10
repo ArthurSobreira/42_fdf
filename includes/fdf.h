@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 11:41:53 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:39:03 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 # define WINDOW_WIDTH 900
 # define WINDOW_HEIGHT 600
 # define WINDOW_NAME "FDF - 42"
-
-# define KEY_ESC    65307
+# define WINDOW_BACKGROUND 0x1a1a1a
 
 typedef struct s_point
 {
@@ -62,7 +61,7 @@ typedef struct s_fdf
 
 void	handle_error(short error_code);
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
-int		handle_keypress(t_fdf *fdf, int key);
+int		handle_keypress(int key, t_fdf *fdf);
 void	clear_all(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
 void	render(t_fdf *fdf);
