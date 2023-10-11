@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/11 09:32:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:00:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define WINDOW_WIDTH 900
-# define WINDOW_HEIGHT 600
+# define WINDOW_WIDTH 1100
+# define WINDOW_HEIGHT 800
 # define WINDOW_NAME "FDF - 42"
 # define WINDOW_BACKGROUND 0x1a1a1a
 
@@ -87,5 +87,6 @@ t_map	*init_map(void);
 t_map	*read_map(char *map_name);
 
 void	free_split(char **split_line);
+int		valid_map_name(char *file_name);
 
 #endif
