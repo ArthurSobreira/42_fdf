@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:45:29 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/08/02 11:44:44 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:52:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	index;
 	char	*result;
 
+	if (s1 == NULL)
+		s1 = ft_strdup("");
 	result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
