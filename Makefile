@@ -26,6 +26,7 @@ SOURCES = \
 	main.c \
 	read_map.c \
 	render.c \
+	utils.c \
 
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
 
