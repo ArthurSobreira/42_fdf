@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/10 18:43:54 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:44:59 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,21 @@ t_fdf	*init_fdf(char *map_name)
 
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	if (fdf == NULL)
-		handle_error(2);
+		clear_all(fdf, 2);
 	fdf->map = read_map(map_name);
-	if (fdf->map == NULL)
-		handle_error(7);
+	if (fdf->map->width == FALSE)
+		not_valid_map(fdf, 7);
 	fdf->mlx_ptr = mlx_init();
 	if (fdf->mlx_ptr == NULL)
-		handle_error(3);
+		clear_all(fdf, 3);
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, \
-							WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
+			WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
 	if (fdf->win_ptr == NULL)
 	{
+		clear_all(fdf, 4);
 		free(fdf->win_ptr);
-		handle_error(4);
 	}
-	fdf->img.mlx_image = mlx_new_image(fdf->mlx_ptr, WINDOW_WIDTH, \
-														WINDOW_HEIGHT);
-	fdf->img.adress = mlx_get_data_addr(fdf->img.mlx_image, \
-			&fdf->img.bits_per_pixel, &fdf->img.line_length, &fdf->img.endian);
+	init_mlx_image(fdf);
 	return (fdf);
 }
 
@@ -50,6 +47,14 @@ t_map	*init_map(void)
 	map->width = 0;
 	map->height = 0;
 	return (map);
+}
+
+void	init_mlx_image(t_fdf *fdf)
+{
+	fdf->img.mlx_image = mlx_new_image(fdf->mlx_ptr, WINDOW_WIDTH, \
+													WINDOW_HEIGHT);
+	fdf->img.adress = mlx_get_data_addr(fdf->img.mlx_image, \
+		&fdf->img.bits_per_pixel, &fdf->img.line_length, &fdf->img.endian);
 }
 
 void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point)
