@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/11 18:13:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:44:22 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	render(t_fdf *fdf)
 	// 			mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, \
 	// 							fdf->img.mlx_image, 0, 0);
     //         }
+	// 		usleep(10000);
     //     }
     // }
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, \
