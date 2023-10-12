@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 18:51:54 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:12:57 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_fdf	*init_fdf(char *map_name);
 void	init_mlx_image(t_fdf *fdf);
 
 t_point	**init_matrix(int width, int height);
+void	clear_matrix(t_point **matrix, int width);
 
 t_map	*init_map(void);
 t_map	*read_map(t_fdf *fdf, char *map_name);
