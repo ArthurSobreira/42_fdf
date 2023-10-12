@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:23:42 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/11 15:55:37 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:42:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,20 @@ void	free_split(char **split_line)
 	free(split_line);
 }
 
-int	valid_map_name(char *file_name)
+short	valid_map_name(char *file_name)
 {
-	int	file_descriptor;
+	size_t	len;
+	int		file_descriptor;
 
+	len = ft_strlen(file_name);
+	if (!ft_strnstr(file_name, ".fdf", len))
+		return (FALSE);
 	file_descriptor = open(file_name, O_RDONLY);
 	if (file_descriptor < 0)
 	{
 		close(file_descriptor);
-		return (0);
+		return (FALSE);
 	}
 	close(file_descriptor);
-	return (1);
+	return (TRUE);
 }
