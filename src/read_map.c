@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:12:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 17:05:21 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:24:11 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 static int	get_width(char *map_name);
 static int	get_height(char *map_name);
 
-t_map	*read_map(char *map_name)
+t_map	*read_map(t_fdf *fdf, char *map_name)
 {
 	t_map	*map;
 
 	map = init_map();
 	if (map == NULL)
 		handle_error(7);
-	map->width = get_width(map_name); // verificar se é maior que 2
-	map->height = get_height(map_name); // verificar se é maior que 2		
+	map->height = get_height(map_name);
+	map->width = get_width(map_name);
 	ft_printf("width: %d | height: %d\n", map->width, map->height);
-	//map->matrix = init_matrix();
+	if ((!map->width) || (map->width < 2) || (map->height < 2))
+		not_valid_map(fdf, map);
+	map->matrix = init_matrix(map->width, map->height);
+	if (map->matrix == NULL)
+		handle_error(8);
 	// map->matrix = get_matrix(map_name, map->x_max, map->y_max);
 	return (map);
 }
@@ -64,9 +68,9 @@ static int	get_height(char *map_name)
 	{
 		line = get_next_line(file_descriptor);
 		if ((line == NULL) && (!ft_isprint(*line)))
-			break;
+			break ;
 		height++;
-		free(line);	
+		free(line);
 	}
 	close(file_descriptor);
 	return (height);
