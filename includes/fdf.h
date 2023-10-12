@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/11 11:00:46 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:40:46 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define WINDOW_HEIGHT 800
 # define WINDOW_NAME "FDF - 42"
 # define WINDOW_BACKGROUND 0x1a1a1a
+
+# define TRUE  1
+# define FALSE 0
 
 typedef struct s_point
 {
@@ -87,6 +90,6 @@ t_map	*init_map(void);
 t_map	*read_map(char *map_name);
 
 void	free_split(char **split_line);
-int		valid_map_name(char *file_name);
+short	valid_map_name(char *file_name);
 
 #endif
