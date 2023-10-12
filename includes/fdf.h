@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/11 17:40:46 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:47:38 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_fdf
 void	handle_error(short error_code);
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
 int		handle_keypress(int key, t_fdf *fdf);
-void	clear_all(t_fdf *fdf);
+void	clear_all(t_fdf *fdf, short exit_code);
 void	render_background(t_fdf *fdf, int color);
 void	render(t_fdf *fdf);
 
@@ -85,11 +85,13 @@ void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point);
 void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point);
 
 t_fdf	*init_fdf(char *map_name);
+void	init_mlx_image(t_fdf *fdf);
+
 t_map	*init_map(void);
-
 t_map	*read_map(char *map_name);
-
-void	free_split(char **split_line);
+short	valid_width(int file_descriptor, int width);
 short	valid_map_name(char *file_name);
+void	free_split(char **split_line);
+void	not_valid_map(t_fdf *fdf, short exit_code);
 
 #endif
