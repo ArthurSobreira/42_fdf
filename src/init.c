@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 16:44:59 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:51:35 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_fdf	*init_fdf(char *map_name)
 	if (fdf->mlx_ptr == NULL)
 		clear_all(fdf, 3);
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, \
-			WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
+		WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
 	if (fdf->win_ptr == NULL)
 	{
 		clear_all(fdf, 4);
