@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 16:54:47 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:38:47 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,13 @@ void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point);
 t_fdf	*init_fdf(char *map_name);
 void	init_mlx_image(t_fdf *fdf);
 
+t_point	**init_matrix(t_fdf *fdf, int width, int height);
+
 t_map	*init_map(void);
-t_map	*read_map(char *map_name);
+t_map	*read_map(t_fdf *fdf, char *map_name);
 short	valid_map_name(char *file_name);
 short	valid_width(int file_descriptor, int width);
 void	free_split(char **split_line);
-void	not_valid_map(t_fdf *fdf, short exit_code);
+void	not_valid_map(t_fdf *fdf, t_map *map);
 
 #endif
