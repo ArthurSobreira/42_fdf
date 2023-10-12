@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:12:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 16:58:25 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:05:21 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,15 @@ static int	get_width(char *map_name)
 	char	**split_line;
 	int		file_descriptor;
 	int		width;
-	int		index;
 
 	file_descriptor = open(map_name, O_RDONLY);
 	line = get_next_line(file_descriptor);
 	split_line = ft_split(line, ' ');
 	width = 0;
-	index = 0;
-	while (split_line[index])
-	{
-		if (ft_strncmp(split_line[index], "\n",\
-					ft_strlen(split_line[index])))
-			width++;
-		index++;
-	}
+	while ((split_line[width]) && \
+			(ft_strncmp(split_line[width], "\n", \
+			ft_strlen(split_line[width])) != 0))
+		width++;
 	free_split(split_line);
 	free(line);
 	if (!valid_width(file_descriptor, width))
