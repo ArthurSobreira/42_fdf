@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 16:51:35 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:11:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ t_fdf	*init_fdf(char *map_name)
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	if (fdf == NULL)
 		clear_all(fdf, 2);
-	fdf->map = read_map(map_name);
-	if (fdf->map->width == FALSE)
-		not_valid_map(fdf, 7);
+	fdf->map = read_map(fdf, map_name);
 	fdf->mlx_ptr = mlx_init();
 	if (fdf->mlx_ptr == NULL)
 		clear_all(fdf, 3);
