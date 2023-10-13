@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:23:42 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 11:39:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:39:48 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ t_point	**init_matrix(int map_width, int map_height)
 			matrix[i][j].y = 0;
 			matrix[i][j].z = 0;
 			matrix[i][j].color = 0;
-			// printf("matrix[%d][%d].x = %f\n", i, j, matrix[i][j].x);
-			// printf("matrix[%d][%d].y = %f\n\n", i, j, matrix[i][j].y);
 			j++;
 		}
 		i++;
