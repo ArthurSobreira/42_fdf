@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 19:22:17 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:58:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	handle_keypress(int key, t_fdf *fdf)
 
 void	clear_all(t_fdf *fdf, short exit_code)
 {
-	clear_matrix(fdf->map->matrix, fdf->map->width);
+	clear_matrix(fdf->map->matrix, fdf->map->height);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img.mlx_image);
 	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
 	mlx_destroy_display(fdf->mlx_ptr);
@@ -31,12 +31,12 @@ void	clear_all(t_fdf *fdf, short exit_code)
 	handle_error(exit_code);
 }
 
-void	clear_matrix(t_point **matrix, int width)
+void	clear_matrix(t_point **matrix, int height)
 {
 	int	index;
 
 	index = 0;
-	while (index < width)
+	while (index < height)
 	{
 		free(matrix[index]);
 		index++;
