@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:01:03 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 18:50:24 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:27:15 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	handle_error(short exit_code)
 		ft_printf("\033[31;3mError, unable to allocate map :(\033[0m\n");
 	else if (exit_code == 8)
 		ft_printf("\033[31;3mError, unable to allocate matrix :(\033[0m\n");
+	else if (exit_code == 9)
+		ft_printf("\033[31;3mError, unable to allocate camera :(\033[0m\n");
 	exit(exit_code);
 }
