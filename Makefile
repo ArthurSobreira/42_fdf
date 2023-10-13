@@ -19,6 +19,7 @@ WHITE = "\033[37;1;4m"
 COLOR_LIMITER = "\033[0m"
 
 SOURCES = \
+	cam_utils.c \
 	draw.c \
 	error.c \
 	handle_events.c \
