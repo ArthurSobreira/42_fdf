@@ -6,34 +6,36 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:23:42 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 19:23:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:39:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_point	**init_matrix(int width, int height)
+t_point	**init_matrix(int map_width, int map_height)
 {
 	t_point	**matrix;
 	int		i;
 	int		j;
 
-	matrix = malloc(width * sizeof(t_point *));
+	matrix = malloc(map_height * sizeof(t_point *));
 	if (matrix == NULL)
 		handle_error(8);
 	i = 0;
-	while (i < width)
+	while (i < map_height)
 	{
-		matrix[i] = malloc(height * sizeof(t_point));
+		matrix[i] = malloc(map_width * sizeof(t_point));
 		if (matrix[i] == NULL)
 			handle_error(8);
 		j = 0;
-		while (j < height)
+		while (j < map_width)
 		{
 			matrix[i][j].x = 0;
 			matrix[i][j].y = 0;
 			matrix[i][j].z = 0;
 			matrix[i][j].color = 0;
+			// printf("matrix[%d][%d].x = %f\n", i, j, matrix[i][j].x);
+			// printf("matrix[%d][%d].y = %f\n\n", i, j, matrix[i][j].y);
 			j++;
 		}
 		i++;
