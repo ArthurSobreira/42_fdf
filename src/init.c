@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/12 18:11:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:59:02 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,19 @@ t_fdf	*init_fdf(char *map_name)
 		free(fdf->win_ptr);
 	}
 	init_mlx_image(fdf);
+	fdf->cam = init_cam(fdf->map);
 	return (fdf);
+}
+
+t_cam	*init_cam(t_map *map)
+{
+	t_cam	*cam;
+
+	cam = (t_cam *)malloc(sizeof(t_cam));
+	if (cam == NULL)
+		handle_error(9);
+	cam->scale = scale_map(map);
+	return (cam);
 }
 
 t_map	*init_map(void)
