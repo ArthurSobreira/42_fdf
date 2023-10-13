@@ -2,9 +2,9 @@ NAME = fdf
 CC = clang
 CFLAGS = -O3 -g3 -Wall -Wextra -Werror
 MLX_FLAGS = -lX11 -lXext -lmlx
-LIB_PATH = ./libft
+LIB_PATH = ./libs/libft
 LIB_NAME = libft.a
-MLX_PATH = ./minilibx
+MLX_PATH = ./libs/minilibx
 MLX_NAME = libmlx.a
 HEADER_PATH = ./includes
 SOURCES_PATH = ./src/
@@ -65,7 +65,7 @@ valgrind: all
 	--trace-children=yes \
 	--track-origins=yes \
 	--log-file=$(VALGRIND_LOG) \
-	./$(NAME) ./maps/42.fdf
+	./$(NAME) ./maps/test_maps/test.fdf
 	@cat $(VALGRIND_LOG) 
 
 clean:
