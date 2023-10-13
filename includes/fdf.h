@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 16:45:59 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:53:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+
+# include <stdio.h> // DELETA ISSO
 
 # define WINDOW_WIDTH 1100
 # define WINDOW_HEIGHT 800
@@ -56,6 +58,11 @@ typedef struct s_map
 	int		height;
 }			t_map;
 
+typedef struct s_cam
+{
+	float	scale;
+}			t_cam;
+
 typedef struct s_img
 {
 	void	*mlx_image;
@@ -71,6 +78,7 @@ typedef struct s_fdf
 	void	*win_ptr;
 	t_img	img;
 	t_map	*map;
+	t_cam	*cam;
 }			t_fdf;
 
 void	handle_error(short error_code);
@@ -97,5 +105,8 @@ short	valid_map_name(char *file_name);
 short	valid_width(int file_descriptor, int width);
 void	free_split(char **split_line);
 void	not_valid_map(t_fdf *fdf, t_map *map);
+
+t_cam	*init_cam(t_map *map);
+float	scale_map(t_map *map);
 
 #endif
