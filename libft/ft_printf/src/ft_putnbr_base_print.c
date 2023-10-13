@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 19:09:59 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/09/25 12:18:48 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:33:09 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int	ft_putnbr_base_print(long int number, char *base)
 
 	length = 0;
 	base_length = ft_strlen(base);
-	if (number == -2147483648)
-	{
-		length += ft_putchar_print('-');
-		length += ft_putchar_print('2');
-		number = 147483648;
-	}
 	if (number < 0)
 	{
 		length += ft_putchar_print('-');
