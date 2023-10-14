@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 19:59:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:06:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ t_cam	*init_cam(t_map *map)
 	cam = (t_cam *)malloc(sizeof(t_cam));
 	if (cam == NULL)
 		handle_error(9);
-	cam->scale = scale_map(map);
+	cam->scale = get_scale_factor(map);
+	cam->x_offset = (WINDOW_WIDTH - map->width) / 3;
+	cam->y_offset = (WINDOW_HEIGHT - map->height) / 3;
 	return (cam);
 }
 

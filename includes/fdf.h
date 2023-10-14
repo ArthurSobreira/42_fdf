@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 19:53:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:22:28 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct s_map
 typedef struct s_cam
 {
 	float	scale;
+	float	x_offset;
+	float	y_offset;
 }			t_cam;
 
 typedef struct s_img
@@ -107,6 +109,9 @@ void	free_split(char **split_line);
 void	not_valid_map(t_fdf *fdf, t_map *map);
 
 t_cam	*init_cam(t_map *map);
-float	scale_map(t_map *map);
+float	get_scale_factor(t_map *map);
+void	scale_map(t_fdf *fdf, t_point *initial_point, t_point *end_point);
+void	centralize(t_fdf *fdf, t_point *initial_point, t_point *end_point);
+void	isometric(t_point *initial_point, t_point *end_point);
 
 #endif

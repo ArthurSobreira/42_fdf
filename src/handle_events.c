@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 19:56:42 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:14:13 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,31 @@ int	handle_keypress(int key, t_fdf *fdf)
 	{
 		fdf->cam->scale += (float)1;
 		printf("escala: %f\n", fdf->cam->scale);
-		render_background(fdf, WINDOW_BACKGROUND);
 	}
 	else if (key == XK_2)
 	{
 		fdf->cam->scale -= (float)1;
 		printf("escala: %f\n", fdf->cam->scale);
-		render_background(fdf, WINDOW_BACKGROUND);
+	}
+	else if (key == XK_Up)
+	{
+		fdf->cam->y_offset -= (float)10;
+		printf("y_offset: %f\n", fdf->cam->y_offset);
+	}
+	else if (key == XK_Down)
+	{
+		fdf->cam->y_offset += (float)10;
+		printf("y_offset: %f\n", fdf->cam->y_offset);
+	}
+	else if (key == XK_Left)
+	{
+		fdf->cam->x_offset -= (float)10;
+		printf("x_offset: %f\n", fdf->cam->x_offset);
+	}
+	else if (key == XK_Right)
+	{
+		fdf->cam->x_offset += (float)10;
+		printf("x_offset: %f\n", fdf->cam->x_offset);
 	}
 	return (0);
 }

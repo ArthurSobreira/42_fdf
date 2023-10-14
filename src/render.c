@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 19:47:29 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:48:15 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ void	render(t_fdf *fdf)
 
 static void	line_render(t_fdf *fdf, t_point initial_point, t_point end_point)
 {
-	initial_point.x *= fdf->cam->scale;
-	initial_point.y *= fdf->cam->scale;
-	end_point.x *= fdf->cam->scale;
-	end_point.y *= fdf->cam->scale;
+	scale_map(fdf, &initial_point, &end_point);
+	isometric(&initial_point, &end_point);
+	centralize(fdf, &initial_point, &end_point);
 	bresenham(fdf, initial_point, end_point);
 }
 
@@ -63,5 +62,7 @@ void	render_background(t_fdf *fdf, int color)
 			while (x++ < WINDOW_WIDTH)
 				pixel_put(fdf, x, y, color);
 		}
+		mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, \
+								fdf->img.mlx_image, 0, 0);
 	}
 }
