@@ -96,7 +96,7 @@ valgrind: all
 	--trace-children=yes \
 	--track-origins=yes \
 	--log-file=$(VALGRIND_LOG) \
-	./$(NAME) ./maps/test_maps/test.fdf
+	./$(NAME) ./maps/42.fdf
 	@cat $(VALGRIND_LOG) 
 
 clean:
