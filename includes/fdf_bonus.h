@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 18:04:58 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:50:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_cam
 	float	x_offset;
 	float	y_offset;
 	float	multi_factor;
+	char	*projection;
 }			t_cam;
 
 typedef struct s_img
@@ -119,6 +120,7 @@ void	render_menu(t_fdf *fdf, int color);
 void	render_ascii_menu(t_fdf *fdf, int color);
 void	render_scale_zoom_menu(t_fdf *fdf, int color);
 void	render_move_menu(t_fdf *fdf, int color);
+void	render_project_menu(t_fdf *fdf, int color);
 
 // Clear Functions
 void	clear_all(t_fdf *fdf, short exit_code);
