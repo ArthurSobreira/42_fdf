@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 15:43:36 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:40:11 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WINDOW_NAME "FDF - 42"
 # define WINDOW_BACKGROUND 0x1a1a1a
 # define MENU_BAR 0x525252
+# define MENU_TEXT_COLOR 0xffffff
 
 // Utils Macros
 # define HEXA_BASE 16
@@ -114,7 +115,7 @@ void	clear_invalid_map(t_fdf *fdf, t_map *map);
 int		render(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
 void	render_menu_bar(t_fdf *fdf, int color);
-void	render_menu(t_fdf *fdf);
+void	render_menu(t_fdf *fdf, int color);
 
 // Clear Functions
 void	clear_all(t_fdf *fdf, short exit_code);
