@@ -1,15 +1,23 @@
 NAME = fdf
 CC = clang
-CFLAGS = -O3 -g3 -Wall -Wextra -Werror
+VALGRIND_LOG = valgrind.log
+
+# Flags for compilations
+CFLAGS = -O3 -ffast-math -fno-stack-protector \
+		-g3 -Wall -Wextra -Werror
 MLX_FLAGS = -lX11 -lXext -lmlx
+
+# Paths for libraries
 LIB_PATH = ./libs/libft
 LIB_NAME = libft.a
 MLX_PATH = ./libs/minilibx
 MLX_NAME = libmlx.a
+
+# Paths Definitions
 HEADER_PATH = ./includes
-SOURCES_PATH = ./src/
 BIN_PATH = ./bin/
-VALGRIND_LOG = valgrind.log
+MANDATORY_SOURCES_PATH = ./src/mandatory/
+BONUS_SOURCES_PATH = ./src/bonus/
 
 # Colors Definition 
 GREEN = "\033[32;1m"
@@ -18,7 +26,7 @@ CYAN = "\033[36;1;3;208m"
 WHITE = "\033[37;1;4m"
 COLOR_LIMITER = "\033[0m"
 
-SOURCES = \
+MANDATORY_SOURCES = \
 	cam_utils.c \
 	draw.c \
 	error.c \
@@ -27,9 +35,10 @@ SOURCES = \
 	main.c \
 	read_map.c \
 	read_utils.c \
+	render_utils.c \
 	render.c \
 
-OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))
+OBJECTS = $(addprefix $(BIN_PATH), $(MANDATORY_SOURCES:%.c=%.o))
 
 all: mlx libft $(BIN_PATH) $(NAME)
 
@@ -45,7 +54,7 @@ ifeq ($(wildcard $(MLX_PATH)/$(MLX_NAME)),)
 	@make -C $(MLX_PATH) --no-print-directory
 endif
 
-$(BIN_PATH)%.o: $(SOURCES_PATH)%.c
+$(BIN_PATH)%.o: $(MANDATORY_SOURCES_PATH)%.c
 	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(WHITE)$(notdir $(<))...$(COLOR_LIMITER)
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER_PATH)
 	@echo " "
