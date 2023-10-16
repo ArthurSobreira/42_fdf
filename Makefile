@@ -47,6 +47,7 @@ BONUS_SOURCES = \
 	handle_events_bonus.c \
 	init_bonus.c \
 	main_bonus.c \
+	menu_bonus.c \
 	read_map_bonus.c \
 	read_utils_bonus.c \
 	render_utils_bonus.c \
