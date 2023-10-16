@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:12:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 12:02:22 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:26:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_map	*read_map(t_fdf *fdf, char *map_name)
 	map->height = get_height(map_name);
 	map->width = get_width(map_name);
 	if ((!map->width) || (map->width < 2) || (map->height < 2))
-		not_valid_map(fdf, map);
+		clear_invalid_map(fdf, map);
 	map->matrix = init_matrix(map->width, map->height);
 	if (map->matrix == NULL)
 		handle_error(8);
