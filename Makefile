@@ -28,6 +28,7 @@ COLOR_LIMITER = "\033[0m"
 
 MANDATORY_SOURCES = \
 	cam_utils.c \
+	clear.c \
 	draw.c \
 	error.c \
 	handle_events.c \
