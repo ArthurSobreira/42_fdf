@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 17:39:12 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:43:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	render(t_fdf *fdf)
 static void	line_render(t_fdf *fdf, t_point initial_point, t_point end_point)
 {
 	scale_map(fdf, &initial_point, &end_point);
-	isometric(fdf, &initial_point, &end_point);
+	if (ft_strncmp(fdf->cam->projection, "ISO", 3) == 0)
+		isometric(fdf, &initial_point, &end_point);
 	centralize(fdf, &initial_point, &end_point);
 	bresenham(fdf, initial_point, end_point);
 }
