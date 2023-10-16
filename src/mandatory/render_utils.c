@@ -6,11 +6,31 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:41:18 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 15:34:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:12:42 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	render_menu(t_fdf *fdf)
+{
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					25, 20, 0xffffff, "     __________  ______");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					25, 30, 0xffffff, "    / ____/ __ \\/ ____/");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					25, 40, 0xffffff, "   / /_  / / / / /_    ");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					25, 50, 0xffffff, "  / __/ / /_/ / __/    ");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					25, 60, 0xffffff, " /_/   /_____/_/       ");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 75, 0xffffff, "_________________________");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 100, 0xffffff, "Increase Scale Z - 'x'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 120, 0xffffff, "Decrease Scale Z - 'z'");
+}
 
 void	render_menu_bar(t_fdf *fdf, int color)
 {
@@ -46,7 +66,7 @@ void	render_background(t_fdf *fdf, int color)
 		y = 0;
 		while (y++ < WINDOW_HEIGHT)
 		{
-			x = 0;
+			x = 200;
 			while (x++ < WINDOW_WIDTH)
 				pixel_put(fdf, x, y, color);
 		}
