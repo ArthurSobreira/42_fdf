@@ -1,5 +1,4 @@
 NAME = fdf
-NAME_BONUS = fdf_bonus
 CC = clang
 VALGRIND_LOG = valgrind.log
 
@@ -87,7 +86,6 @@ $(BIN_PATH):
 
 bonus: mlx libft
 	@make --no-print-directory \
-	NAME="$(NAME_BONUS)" \
 	OBJECTS="$(BONUS_OBJECTS)" \
 	MANDATORY_SOURCES_PATH="$(BONUS_SOURCES_PATH)"
 
