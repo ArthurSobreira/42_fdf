@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 15:15:06 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:26:26 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	init_bres(t_bres *bres_info, t_point initial_point, t_point end_point);
 t_map	*read_map(t_fdf *fdf, char *map_name);
 short	valid_width(int file_descriptor, int width);
 short	valid_map_name(char *file_name);
-void	not_valid_map(t_fdf *fdf, t_map *map);
+void	clear_invalid_map(t_fdf *fdf, t_map *map);
 
 // Render Functions
 int		render(t_fdf *fdf);
