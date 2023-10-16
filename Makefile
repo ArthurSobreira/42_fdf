@@ -1,4 +1,5 @@
 NAME = fdf
+NAME_BONUS = fdf_bonus
 CC = clang
 VALGRIND_LOG = valgrind.log
 
@@ -39,7 +40,21 @@ MANDATORY_SOURCES = \
 	render_utils.c \
 	render.c \
 
+BONUS_SOURCES = \
+	cam_utils_bonus.c \
+	clear_bonus.c \
+	draw_bonus.c \
+	error_bonus.c \
+	handle_events_bonus.c \
+	init_bonus.c \
+	main_bonus.c \
+	read_map_bonus.c \
+	read_utils_bonus.c \
+	render_utils_bonus.c \
+	render_bonus.c \
+
 OBJECTS = $(addprefix $(BIN_PATH), $(MANDATORY_SOURCES:%.c=%.o))
+BONUS_OBJECTS = $(addprefix $(BIN_PATH), $(BONUS_SOURCES:%.c=%.o))
 
 all: mlx libft $(BIN_PATH) $(NAME)
 
@@ -70,6 +85,12 @@ $(NAME): $(OBJECTS)
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
 
+bonus: mlx libft
+	@make --no-print-directory \
+	NAME="$(NAME_BONUS)" \
+	OBJECTS="$(BONUS_OBJECTS)" \
+	MANDATORY_SOURCES_PATH="$(BONUS_SOURCES_PATH)"
+
 valgrind: all
 	@valgrind --leak-check=full \
 	--show-leak-kinds=all -s \
@@ -87,9 +108,10 @@ clean:
 fclean: clean
 	@make fclean -C $(LIB_PATH) --no-print-directory
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_BONUS)
 	@rm -rf $(VALGRIND_LOG)
 
 re: fclean
 	@make --no-print-directory
 
-.PHONY: all clean fclean re libft mlx valgrind
+.PHONY: all clean fclean re bonus libft mlx valgrind
