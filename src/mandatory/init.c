@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 14:56:05 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:02:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_cam	*init_cam(t_map *map)
 	cam->y_offset = (WINDOW_HEIGHT / 2);
 	cam->multi_factor = 1;
 	if (map->max_z < 50)
-		cam->multi_factor = 5;
+		cam->multi_factor = 10;
 	return (cam);
 }
 
