@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 15:26:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:43:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	clear_invalid_map(t_fdf *fdf, t_map *map);
 int		render(t_fdf *fdf);
 void	render_background(t_fdf *fdf, int color);
 void	render_menu_bar(t_fdf *fdf, int color);
+void	render_menu(t_fdf *fdf);
 
 // Clear Functions
 void	clear_all(t_fdf *fdf, short exit_code);
