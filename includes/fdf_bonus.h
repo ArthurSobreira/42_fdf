@@ -6,12 +6,12 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 17:08:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:31:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FDF_BONUS_H
+# define FDF_BONUS_H
 
 # include "../libs/libft/libft.h"
 # include "../libs/minilibx/mlx.h"
