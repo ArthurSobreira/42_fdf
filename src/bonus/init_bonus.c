@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 18:42:21 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:14:40 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ t_cam	*init_cam(t_map *map)
 	cam->multi_factor = 1;
 	if (map->max_z < 50)
 		cam->multi_factor = 10;
+	else if (map->max_z > 300)
+		cam->multi_factor = 0.05;
 	cam->projection = "ISO";
 	return (cam);
 }
