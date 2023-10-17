@@ -6,13 +6,13 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 13:36:04 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:48:23 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_bonus.h"
 
-static void handle_scale(int key, t_fdf *fdf);
+static void	handle_scale(int key, t_fdf *fdf);
 static void	handle_z_scale(int key, t_fdf *fdf);
 static void	handle_movement(int key, t_fdf *fdf);
 
@@ -34,21 +34,21 @@ int	handle_keypress(int key, t_fdf *fdf)
 	return (0);
 }
 
-static void handle_scale(int key, t_fdf *fdf)
+static void	handle_scale(int key, t_fdf *fdf)
 {
 	if (key == XK_equal)
 	{
 		if (fdf->map->max_z < 50)
 			fdf->cam->scale += 1;
 		else
-			fdf->cam->scale += 0.2;		
+			fdf->cam->scale += 0.2;
 	}
 	else if (key == XK_minus)
 	{
 		if (fdf->map->max_z < 50)
 			fdf->cam->scale -= 1;
 		else
-			fdf->cam->scale -= 0.2;	
+			fdf->cam->scale -= 0.2;
 	}
 }
 
@@ -61,7 +61,7 @@ static void	handle_z_scale(int key, t_fdf *fdf)
 		else if (fdf->map->max_z < 20)
 			fdf->cam->multi_factor += 1;
 		else
-			fdf->cam->multi_factor += 0.2;		
+			fdf->cam->multi_factor += 0.2;
 	}
 	else if (key == XK_z)
 	{
