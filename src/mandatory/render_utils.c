@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:41:18 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 17:55:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:43:07 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	render_menu(t_fdf *fdf, int color)
 					20, 100, color, "Increase Scale Z - 'x'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
 					20, 120, color, "Decrease Scale Z - 'z'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 160, color, "Bonus is much more fun :)");
 }
 
 void	render_menu_bar(t_fdf *fdf, int color)
