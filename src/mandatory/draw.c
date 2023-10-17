@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:17:07 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 14:44:07 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:25:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	bresenham(t_fdf *fdf, t_point inital_point, t_point end_point)
 	if (ft_abs(temp_delta_x) > ft_abs(temp_delta_y))
 	{
 		if (inital_point.x > end_point.x)
-			bresenham_low(fdf, end_point, inital_point);
-		else
-			bresenham_low(fdf, inital_point, end_point);
-	}
-	else
-	{
-		if (inital_point.y > end_point.y)
 			bresenham_high(fdf, end_point, inital_point);
 		else
 			bresenham_high(fdf, inital_point, end_point);
 	}
+	else
+	{
+		if (inital_point.y > end_point.y)
+			bresenham_low(fdf, end_point, inital_point);
+		else
+			bresenham_low(fdf, inital_point, end_point);
+	}
 }
 
-void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point)
+void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point)
 {
 	t_bres	bres;
 
@@ -69,7 +69,7 @@ void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point)
 	}
 }
 
-void	bresenham_high(t_fdf *fdf, t_point initial_point, t_point end_point)
+void	bresenham_low(t_fdf *fdf, t_point initial_point, t_point end_point)
 {
 	t_bres	bres;
 
