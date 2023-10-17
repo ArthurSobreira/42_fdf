@@ -27,7 +27,7 @@ WHITE = "\033[37;1;4m"
 COLOR_LIMITER = "\033[0m"
 
 MANDATORY_SOURCES = \
-	cam_utils.c \
+	cam_transform.c \
 	clear.c \
 	draw.c \
 	error.c \
@@ -40,7 +40,7 @@ MANDATORY_SOURCES = \
 	render.c \
 
 BONUS_SOURCES = \
-	cam_utils_bonus.c \
+	cam_transform_bonus.c \
 	clear_bonus.c \
 	draw_bonus.c \
 	error_bonus.c \
