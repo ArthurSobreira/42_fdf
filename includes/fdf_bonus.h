@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 15:57:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:29:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 
 // Color Macros
 # define TOP_COLOR 0x878EA2
-# define MID_COLOR 0x535C7C
-# define BOTTOM_COLOR 0x29345E
+# define MID_COLOR 0x626A87
+# define BOTTOM_COLOR 0x333E65
 # define MENU_TEXT_COLOR 0xffffff
 # define MENU_BAR_COLOR 0x525252
 
@@ -68,7 +68,6 @@ typedef struct s_map
 	int		width;
 	int		height;
 	float	max_z;
-	short	has_color;
 }			t_map;
 
 typedef struct s_cam
