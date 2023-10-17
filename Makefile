@@ -1,4 +1,5 @@
 NAME = fdf
+NAME_BONUS = fdf_bonus
 CC = clang
 VALGRIND_LOG = valgrind.log
 
@@ -82,13 +83,22 @@ $(NAME): $(OBJECTS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
 	@echo " "
 
+bonus: mlx libft $(BIN_PATH) $(NAME_BONUS)
+
+$(BIN_PATH)%.o: $(BONUS_SOURCES_PATH)%.c
+	@echo $(GREEN)[Compiling]$(COLOR_LIMITER) $(WHITE)$(notdir $(<))...$(COLOR_LIMITER)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER_PATH)
+	@echo " "
+
+$(NAME_BONUS): $(BONUS_OBJECTS)
+	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
+	@echo $(CYAN)"| FDF_BONUS executable was created successfully!! |"$(COLOR_LIMITER)
+	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
+	@echo " "
+
 $(BIN_PATH):
 	@mkdir -p $(BIN_PATH)
-
-bonus: mlx libft
-	@make --no-print-directory \
-	OBJECTS="$(BONUS_OBJECTS)" \
-	MANDATORY_SOURCES_PATH="$(BONUS_SOURCES_PATH)"
 
 valgrind: all
 	@valgrind --leak-check=full \
