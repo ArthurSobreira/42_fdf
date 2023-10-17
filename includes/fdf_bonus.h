@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 14:45:06 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:03:09 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@
 # define WINDOW_HEIGHT 800
 # define WINDOW_NAME "FDF - 42"
 # define WINDOW_BACKGROUND 0x1a1a1a
-# define MENU_BAR 0x525252
+
+// Color Macros
+# define BOTTOM_COLOR 0x0a1647
+# define TOP_COLOR 0xe7e7e4
 # define MENU_TEXT_COLOR 0xffffff
+# define MENU_BAR_COLOR 0x525252
 
 // Utils Macros
 # define HEXA_BASE 16
