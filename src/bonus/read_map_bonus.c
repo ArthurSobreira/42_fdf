@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:12:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 17:11:15 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:46:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,11 @@ static void	fill_matrix(t_map *map, char **split_line, int height)
 		if (map->matrix[height][index].z > map->max_z)
 			map->max_z = map->matrix[height][index].z;
 		if (ft_strchr(split_line[index], ','))
+		{
 			map->matrix[height][index].color = ft_atoi_base(\
 					ft_strchr(split_line[index], 'x') + 1, HEXA_BASE);
+			map->has_color = TRUE;
+		}
 		else
 			map->matrix[height][index].color = 0xffffff;
 		index++;
