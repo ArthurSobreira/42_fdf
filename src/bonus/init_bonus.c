@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 13:14:40 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:45:21 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_map	*init_map(void)
 	map->width = 0;
 	map->height = 0;
 	map->max_z = 0;
+	map->has_color = FALSE;
 	return (map);
 }
 
