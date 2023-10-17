@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:33:39 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 11:50:15 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:18:51 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	isometric(t_fdf *fdf, t_point *initial_point, t_point *end_point)
 	new_initial.x = (initial_point->x - initial_point->y) * cos(COS_30);
 	new_initial.y = (initial_point->x + initial_point->y) * sin(SEN_30) - \
 		initial_point->z * fdf->cam->multi_factor;
-	initial_point->x = new_initial.x;
-	initial_point->y = new_initial.y;
 	new_end.x = (end_point->x - end_point->y) * cos(COS_30);
 	new_end.y = (end_point->x + end_point->y) * sin(SEN_30) - end_point->z \
 		* fdf->cam->multi_factor;
+	initial_point->x = new_initial.x;
+	initial_point->y = new_initial.y;
 	end_point->x = new_end.x;
 	end_point->y = new_end.y;
 }
