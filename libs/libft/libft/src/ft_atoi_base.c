@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 14:32:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/13 14:40:18 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:31:08 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_validate(char c, int base);
 int	ft_atoi_base(const char *str, int str_base)
 {
 	int	index;
-	int result;
+	int	result;
 	int	signal;
 
 	index = 0;
@@ -42,14 +42,16 @@ int	ft_atoi_base(const char *str, int str_base)
 
 static int	ft_validate(char c, int base)
 {
-	char	low_base[17] = "0123456789abcdef";
-	char	upper_base[17] = "0123456789ABCDEF";
+	char	*low_base;
+	char	*upper_base;
 	int		index;
 
+	low_base = "0123456789abcdef";
+	upper_base = "0123456789ABCDEF";
 	index = 0;
 	while (index < base)
 	{
-		if (low_base[index] == c ||upper_base[index] == c)
+		if ((low_base[index] == c) || (upper_base[index] == c))
 			return (index);
 		index++;
 	}
