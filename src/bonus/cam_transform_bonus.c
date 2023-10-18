@@ -6,11 +6,28 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:33:39 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:00:45 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:18:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_bonus.h"
+
+float	get_scale_factor(t_map *map)
+{
+	float	scale_factor;
+	float	scale_x;
+	float	scale_y;
+
+	scale_x = (float)WINDOW_WIDTH / (float)map->width;
+	scale_y = (float)WINDOW_HEIGHT / (float)map->height;
+	if (scale_x < scale_y)
+		scale_factor = scale_x;
+	else
+		scale_factor = scale_y;
+	if (scale_factor < 3)
+		return (scale_factor);
+	return (scale_factor / 1.2);
+}
 
 void	centralize(t_fdf *fdf, t_point *initial_point, t_point *end_point)
 {
@@ -45,19 +62,23 @@ void	isometric(t_fdf *fdf, t_point *initial_point, t_point *end_point)
 	end_point->y = new_end.y;
 }
 
-float	get_scale_factor(t_map *map)
+void	oblique(t_fdf *fdf, t_point *initial_point, t_point *end_point)
 {
-	float	scale_factor;
-	float	scale_x;
-	float	scale_y;
+	t_point	new_initial;
+	t_point	new_end;
+	float	scale;
 
-	scale_x = (float)WINDOW_WIDTH / (float)map->width;
-	scale_y = (float)WINDOW_HEIGHT / (float)map->height;
-	if (scale_x < scale_y)
-		scale_factor = scale_x;
-	else
-		scale_factor = scale_y;
-	if (scale_factor < 3)
-		return (scale_factor);
-	return (scale_factor / 1.2);
+	scale = 1.545;
+	new_initial.x = (initial_point->x + 0.5 * \
+		(initial_point->z * -fdf->cam->multi_factor)) * scale * cos(COS_30);
+	new_initial.y = (initial_point->y + 0.5 * \
+		(initial_point->z * -fdf->cam->multi_factor)) * scale * sin(SEN_30);
+	new_end.x = (end_point->x + 0.5 * \
+		(end_point->z * -fdf->cam->multi_factor)) * scale * cos(COS_30);
+	new_end.y = (end_point->y + 0.5 * \
+		(end_point->z * -fdf->cam->multi_factor)) * scale * sin(SEN_30);
+	initial_point->x = new_initial.x;
+	initial_point->y = new_initial.y;
+	end_point->x = new_end.x;
+	end_point->y = new_end.y;
 }
