@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:41:18 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 10:15:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:37:14 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	render_menu(t_fdf *fdf, int color)
 	render_scale_zoom_menu(fdf, color);
 	render_move_menu(fdf, color);
 	render_project_menu(fdf, color);
+	render_rotation_menu(fdf, color);
 }
 
 void	render_menu_bar(t_fdf *fdf, int color)
