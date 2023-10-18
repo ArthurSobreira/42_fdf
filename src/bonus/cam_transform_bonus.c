@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:33:39 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 18:18:51 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:00:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ float	get_scale_factor(t_map *map)
 	else
 		scale_factor = scale_y;
 	if (scale_factor < 3)
-		return (2);
+		return (scale_factor);
 	return (scale_factor / 1.2);
 }
