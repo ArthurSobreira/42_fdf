@@ -32,7 +32,7 @@ MANDATORY_SOURCES = \
 	clear.c \
 	draw.c \
 	error.c \
-	handle_events.c \
+	handle_keypress.c \
 	init.c \
 	main.c \
 	read_map.c \
@@ -45,7 +45,7 @@ BONUS_SOURCES = \
 	clear_bonus.c \
 	draw_bonus.c \
 	error_bonus.c \
-	handle_events_bonus.c \
+	handle_keypress_bonus.c \
 	handle_utils_bonus.c \
 	init_bonus.c \
 	main_bonus.c \
