@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 11:39:26 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:38:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void	render_ascii_menu(t_fdf *fdf, int color);
 void	render_scale_zoom_menu(t_fdf *fdf, int color);
 void	render_move_menu(t_fdf *fdf, int color);
 void	render_project_menu(t_fdf *fdf, int color);
+void	render_rotation_menu(t_fdf *fdf, int color);
 
 // Clear Functions
 void	clear_all(t_fdf *fdf, short exit_code);
@@ -135,6 +136,10 @@ void	free_split(char **split_line);
 // Handle Functions
 void	handle_error(short error_code);
 int		handle_keypress(int key, t_fdf *fdf);
+void	handle_scale(int key, t_fdf *fdf);
+void	handle_z_scale(int key, t_fdf *fdf);
+void	handle_movement(int key, t_fdf *fdf);
+void	reset_all(t_fdf *fdf);
 
 // Projection and Scale Functions
 void	scale_map(t_fdf *fdf, t_point *initial_point, t_point *end_point);
