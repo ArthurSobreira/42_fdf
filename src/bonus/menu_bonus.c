@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:01:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:36:47 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:23:23 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,17 @@ void	render_project_menu(t_fdf *fdf, int color)
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
 					20, 310, color, "Top-Down Projection - '2'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 410, color, "Reset Projection - 'r'");
+					20, 330, color, "Oblique Projection - '3'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 430, color, "Reset Projection - 'r'");
 }
 
 void	render_rotation_menu(t_fdf *fdf, int color)
 {
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 340, color, "Rotate X - 'a / d'");
+					20, 360, color, "Rotate X - 'a / d'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 360, color, "Rotate Y - 'w / s'");
+					20, 380, color, "Rotate Y - 'w / s'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 380, color, "Rotate Z - 'q / e'");
+					20, 400, color, "Rotate Z - 'q / e'");
 }
