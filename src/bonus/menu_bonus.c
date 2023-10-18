@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:01:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 18:23:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:29:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	render_project_menu(t_fdf *fdf, int color)
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
 					20, 290, color, "Isometric Projection - '1'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 310, color, "Top-Down Projection - '2'");
+					20, 310, color, "Oblique Projection - '2'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 330, color, "Oblique Projection - '3'");
+					20, 330, color, "Top-Down Projection - '3'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
 					20, 430, color, "Reset Projection - 'r'");
 }
