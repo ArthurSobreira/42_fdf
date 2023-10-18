@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:23:42 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 11:57:23 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:08:42 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ short	valid_map_name(char *file_name)
 	char	*first_line;
 
 	len = ft_strlen(file_name);
-	if ((!ft_strnstr(file_name, ".fdf", len)) || \
-		(ft_strncmp(file_name, ".fdf", len)))
+	if (!ft_strnstr(file_name, ".fdf", len))
 		return (FALSE);
 	file_descriptor = open(file_name, O_RDONLY);
 	first_line = get_next_line(file_descriptor);
