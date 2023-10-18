@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 15:01:27 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:39:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <X11/keysym.h>
 
 // Window Macros
-# define WINDOW_WIDTH 1100
-# define WINDOW_HEIGHT 800
+# define WINDOW_WIDTH 1300
+# define WINDOW_HEIGHT 900
 # define WINDOW_NAME "FDF - 42"
 # define WINDOW_BACKGROUND 0x1a1a1a
 # define MENU_BAR_COLOR 0x525252
