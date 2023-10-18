@@ -46,6 +46,7 @@ BONUS_SOURCES = \
 	draw_bonus.c \
 	error_bonus.c \
 	handle_events_bonus.c \
+	handle_utils_bonus.c \
 	init_bonus.c \
 	main_bonus.c \
 	menu_bonus.c \
