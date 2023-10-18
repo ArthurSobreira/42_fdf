@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:38:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:51:01 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ typedef struct s_map
 
 typedef struct s_cam
 {
+	char	*projection;
 	float	scale;
 	float	x_offset;
 	float	y_offset;
 	float	multi_factor;
-	char	*projection;
 }			t_cam;
 
 typedef struct s_img
@@ -144,6 +144,7 @@ void	reset_all(t_fdf *fdf);
 // Projection and Scale Functions
 void	scale_map(t_fdf *fdf, t_point *initial_point, t_point *end_point);
 void	isometric(t_fdf *fdf, t_point *initial_point, t_point *end_point);
+void	oblique(t_fdf *fdf, t_point *initial_point, t_point *end_point);
 void	centralize(t_fdf *fdf, t_point *initial_point, t_point *end_point);
 float	get_scale_factor(t_map *map);
 void	center_to_origin(t_map *map);
