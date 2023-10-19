@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 17:51:01 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:17:30 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define FALSE 0
 
 // Math Macros
+# define INITIAL_ANG 0.01745329
 # define COS_30 0.86602540378
 # define SEN_30	0.5
 
@@ -72,11 +73,14 @@ typedef struct s_map
 
 typedef struct s_cam
 {
-	char	*projection;
 	float	scale;
 	float	x_offset;
 	float	y_offset;
+	float	rotate_x;
+	float	rotate_y;
+	float	rotate_z;
 	float	multi_factor;
+	char	*projection;
 }			t_cam;
 
 typedef struct s_img
@@ -139,6 +143,7 @@ int		handle_keypress(int key, t_fdf *fdf);
 void	handle_scale(int key, t_fdf *fdf);
 void	handle_z_scale(int key, t_fdf *fdf);
 void	handle_movement(int key, t_fdf *fdf);
+void	handle_rotate(int key, t_fdf *fdf);
 void	reset_all(t_fdf *fdf);
 
 // Projection and Scale Functions
@@ -148,5 +153,8 @@ void	oblique(t_fdf *fdf, t_point *initial_point, t_point *end_point);
 void	centralize(t_fdf *fdf, t_point *initial_point, t_point *end_point);
 float	get_scale_factor(t_map *map);
 void	center_to_origin(t_map *map);
+void	rotate_x(t_fdf *fdf, t_point *initial_p, t_point *end_p, float angle);
+void	rotate_y(t_point *initial_point, t_point *end_point, float angle);
+void	rotate_z(t_point *initial_point, t_point *end_point, float angle);
 
 #endif
