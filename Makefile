@@ -41,6 +41,7 @@ MANDATORY_SOURCES = \
 	render.c \
 
 BONUS_SOURCES = \
+	cam_rotate_bonus.c \
 	cam_transform_bonus.c \
 	clear_bonus.c \
 	draw_bonus.c \
@@ -95,7 +96,8 @@ $(NAME_BONUS): $(BONUS_OBJECTS)
 	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| FDF_BONUS executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lm \
+	-lft $(MLX_FLAGS)
 	@echo " "
 
 $(BIN_PATH):
