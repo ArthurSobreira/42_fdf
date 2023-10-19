@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 11:31:33 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:32:37 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_map
 
 typedef struct s_cam
 {
+	int		projection;
 	float	scale;
 	float	x_offset;
 	float	y_offset;
@@ -80,7 +81,6 @@ typedef struct s_cam
 	float	rotate_y;
 	float	rotate_z;
 	float	multi_factor;
-	char	*projection;
 }			t_cam;
 
 typedef struct s_img
@@ -100,6 +100,13 @@ typedef struct s_fdf
 	t_map	*map;
 	t_cam	*cam;
 }			t_fdf;
+
+enum e_projection
+{
+	ISOMETRIC,
+	OBLIQUE,
+	TOP_VIEW
+};
 
 // Draw Functions
 void	pixel_put(t_fdf *fdf, int x, int y, int color);
