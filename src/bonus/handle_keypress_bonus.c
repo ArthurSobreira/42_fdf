@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 18:29:50 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:52:49 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	handle_keypress(int key, t_fdf *fdf)
 	else if (key == XK_Up || key == XK_Down || \
 				key == XK_Left || key == XK_Right)
 		handle_movement(key, fdf);
+	else if (key == XK_w || key == XK_s || key == XK_a || \
+				key == XK_d || key == XK_q || key == XK_e)
+		handle_rotate(key, fdf);
 	else if (key == XK_r)
 		reset_all(fdf);
 	else if (key == XK_1)
