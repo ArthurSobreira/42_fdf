@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:33:43 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 11:14:32 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:33:17 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	render(t_fdf *fdf)
 static void	line_render(t_fdf *fdf, t_point initial_point, t_point end_point)
 {
 	scale_map(fdf, &initial_point, &end_point);
-	if (ft_strncmp(fdf->cam->projection, "ISO", 3) == 0)
+	if (fdf->cam->projection == ISOMETRIC)
 		isometric(fdf, &initial_point, &end_point);
-	else if (ft_strncmp(fdf->cam->projection, "OBL", 3) == 0)
+	else if (fdf->cam->projection == OBLIQUE)
 		oblique(fdf, &initial_point, &end_point);
 	rotate_x(fdf, &initial_point, &end_point, fdf->cam->rotate_x);
 	rotate_y(&initial_point, &end_point, fdf->cam->rotate_y);
