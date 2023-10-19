@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 10:52:49 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:32:50 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	handle_keypress(int key, t_fdf *fdf)
 	else if (key == XK_r)
 		reset_all(fdf);
 	else if (key == XK_1)
-		fdf->cam->projection = "ISO";
+		fdf->cam->projection = ISOMETRIC;
 	else if (key == XK_2)
-		fdf->cam->projection = "OBL";
+		fdf->cam->projection = OBLIQUE;
 	else if (key == XK_3)
-		fdf->cam->projection = "TOP";
+		fdf->cam->projection = TOP_VIEW;
 	return (0);
 }
