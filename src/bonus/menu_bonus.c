@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:01:13 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 18:29:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:32:45 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,24 @@ void	render_move_menu(t_fdf *fdf, int color)
 					20, 260, color, "Move Right - 'Arrow Right'");
 }
 
-void	render_project_menu(t_fdf *fdf, int color)
-{
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 290, color, "Isometric Projection - '1'");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 310, color, "Oblique Projection - '2'");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 330, color, "Top-Down Projection - '3'");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 430, color, "Reset Projection - 'r'");
-}
-
 void	render_rotation_menu(t_fdf *fdf, int color)
 {
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 360, color, "Rotate X - 'a / d'");
+					20, 290, color, "Rotate X - 'a / d'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 380, color, "Rotate Y - 'w / s'");
+					20, 310, color, "Rotate Y - 'w / s'");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
-					20, 400, color, "Rotate Z - 'q / e'");
+					20, 330, color, "Rotate Z - 'q / e'");
+}
+
+void	render_project_menu(t_fdf *fdf, int color)
+{
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 360, color, "Isometric Projection - '1'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 380, color, "Oblique Projection - '2'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 400, color, "Top-Down Projection - '3'");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, \
+					20, 430, color, "Reset Projection - 'r'");
 }
