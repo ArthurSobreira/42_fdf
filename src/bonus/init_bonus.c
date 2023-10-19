@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 09:42:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:33:04 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_cam	*init_cam(t_map *map)
 	cam = (t_cam *)malloc(sizeof(t_cam));
 	if (cam == NULL)
 		handle_error(9);
+	cam->projection = ISOMETRIC;
 	cam->scale = get_scale_factor(map);
 	cam->x_offset = (WINDOW_WIDTH / 2) + 100;
 	cam->y_offset = (WINDOW_HEIGHT / 2);
@@ -54,7 +55,6 @@ t_cam	*init_cam(t_map *map)
 		cam->multi_factor = 0.05;
 	else
 		cam->multi_factor = 1;
-	cam->projection = "ISO";
 	return (cam);
 }
 
