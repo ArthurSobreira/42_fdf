@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:25:17 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 10:56:00 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:32:56 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	handle_rotate(int key, t_fdf *fdf)
 
 void	reset_all(t_fdf *fdf)
 {
+	fdf->cam->projection = ISOMETRIC;
 	fdf->cam->scale = get_scale_factor(fdf->map);
 	fdf->cam->x_offset = (WINDOW_WIDTH / 2) + 100;
 	fdf->cam->y_offset = (WINDOW_HEIGHT / 2);
@@ -93,5 +94,4 @@ void	reset_all(t_fdf *fdf)
 	fdf->cam->rotate_x = 0;
 	fdf->cam->rotate_y = 0;
 	fdf->cam->rotate_z = 0;
-	fdf->cam->projection = "ISO";
 }
