@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:25:17 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:26:49 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:56:00 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,22 @@ void	handle_movement(int key, t_fdf *fdf)
 		fdf->cam->x_offset -= 10;
 }
 
+void	handle_rotate(int key, t_fdf *fdf)
+{
+	if (key == XK_s)
+		fdf->cam->rotate_x -= (5 * INITIAL_ANG);
+	else if (key == XK_w)
+		fdf->cam->rotate_x += (5 * INITIAL_ANG);
+	else if (key == XK_a)
+		fdf->cam->rotate_y -= (5 * INITIAL_ANG);
+	else if (key == XK_d)
+		fdf->cam->rotate_y += (5 * INITIAL_ANG);
+	else if (key == XK_q)
+		fdf->cam->rotate_z -= (5 * INITIAL_ANG);
+	else if (key == XK_e)
+		fdf->cam->rotate_z += (5 * INITIAL_ANG);
+}
+
 void	reset_all(t_fdf *fdf)
 {
 	fdf->cam->scale = get_scale_factor(fdf->map);
@@ -74,5 +90,8 @@ void	reset_all(t_fdf *fdf)
 		fdf->cam->multi_factor = 10;
 	else if (fdf->map->max_z > 300)
 		fdf->cam->multi_factor = 0.05;
+	fdf->cam->rotate_x = 0;
+	fdf->cam->rotate_y = 0;
+	fdf->cam->rotate_z = 0;
 	fdf->cam->projection = "ISO";
 }
