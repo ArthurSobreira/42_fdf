@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:31:22 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/17 16:19:02 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 09:42:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,15 @@ t_cam	*init_cam(t_map *map)
 	cam->scale = get_scale_factor(map);
 	cam->x_offset = (WINDOW_WIDTH / 2) + 100;
 	cam->y_offset = (WINDOW_HEIGHT / 2);
-	cam->multi_factor = 1;
+	cam->rotate_x = 0;
+	cam->rotate_y = 0;
+	cam->rotate_z = 0;
 	if (map->max_z < 50)
 		cam->multi_factor = 10;
 	else if (map->max_z > 300)
 		cam->multi_factor = 0.05;
+	else
+		cam->multi_factor = 1;
 	cam->projection = "ISO";
 	return (cam);
 }
