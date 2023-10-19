@@ -1,6 +1,5 @@
 NAME = fdf
 NAME_BONUS = fdf_bonus
-CC = clang
 VALGRIND_LOG = valgrind.log
 
 # Flags for compilations
