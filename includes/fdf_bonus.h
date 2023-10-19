@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 09:15:50 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/19 11:17:30 by arsobrei         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:31:33 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ void	render_menu(t_fdf *fdf, int color);
 void	render_ascii_menu(t_fdf *fdf, int color);
 void	render_scale_zoom_menu(t_fdf *fdf, int color);
 void	render_move_menu(t_fdf *fdf, int color);
-void	render_project_menu(t_fdf *fdf, int color);
 void	render_rotation_menu(t_fdf *fdf, int color);
+void	render_project_menu(t_fdf *fdf, int color);
 
 // Clear Functions
 void	clear_all(t_fdf *fdf, short exit_code);
