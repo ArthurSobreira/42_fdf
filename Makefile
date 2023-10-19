@@ -82,7 +82,7 @@ $(NAME): $(OBJECTS)
 	@echo $(CYAN)" --------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| FDF executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -lm -L $(LIB_PATH) -L $(MLX_PATH) -lft $(MLX_FLAGS)
 	@echo " "
 
 bonus: mlx libft $(BIN_PATH) $(NAME_BONUS)
@@ -96,7 +96,7 @@ $(NAME_BONUS): $(BONUS_OBJECTS)
 	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| FDF_BONUS executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -L $(LIB_PATH) -L $(MLX_PATH) -lm \
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -lm -L $(LIB_PATH) -L $(MLX_PATH)	 \
 	-lft $(MLX_FLAGS)
 	@echo " "
 
