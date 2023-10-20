@@ -14,5 +14,5 @@ for i in range(height):
         height = int(np.mean(image_matrix[i, j])) - 128
         relief_map[i, j] = height
 
-save_image = input("Enter how to save the map: ")
+save_image = input("Enter the name that the image will be saved: ")
 np.savetxt(save_image, relief_map, fmt='%d')
