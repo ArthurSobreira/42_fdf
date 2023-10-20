@@ -48,3 +48,17 @@ $> git clone git@github.com:ArthurSobreira/42_fdf.git
 $> make bonus
 $> ./fdf_bonus ./maps/<map-name>.fdf
 ```
+
+<br>
+
+## Generate Map From Image
+* To create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
+  and run the script <code>create_map.py</code> with the following command:
+
+```bash
+$> python3 create_map.py
+$>
+$> Enter the image path: <image-name>
+$> Enter the name that the image will be saved: <map-name>.fdf
+```
+
