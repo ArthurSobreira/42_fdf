@@ -37,13 +37,11 @@
 
 ## Run the Program
 * Make sure you clone the repository with the following command:
-
 ```bash
 $> git clone git@github.com:ArthurSobreira/42_fdf.git
 ```
 
 * Once cloned, to compile and run the program, use the following commands:
-
 ```bash
 $> make bonus
 $> ./fdf_bonus ./maps/<map-name>.fdf
@@ -52,9 +50,13 @@ $> ./fdf_bonus ./maps/<map-name>.fdf
 <br>
 
 ## Generate Map From Image
-* To create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
-  and run the script <code>create_map.py</code> with the following command:
+* First of all, you need to install the <strong>Pillow</strong> package, with the following command:
+```bash
+$> pip install Pillow
+```
 
+* Now, to create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
+  and run the script <code>create_map.py</code> with the following command:
 ```bash
 $> python3 create_map.py
 $>
