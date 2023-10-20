@@ -64,3 +64,12 @@ $> Enter the image path: <image-name>
 $> Enter the name that the image will be saved: <map-name>.fdf
 ```
 
+* Once the map is created, to render it simply execute the command seen previously, with this it is possible to generate maps like this one:
+<br>
+<div align="center">
+   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/elem-fract_map.png" target="_blank">
+      <img height=550 src="images/elem-fract_map.png">
+   </a>
+</div>
+  
+
