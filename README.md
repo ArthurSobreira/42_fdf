@@ -68,10 +68,10 @@ $> Enter the name that the image will be saved: <map-name>.fdf
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/brazil.png" target="_blank">
-      <img algn="left" height=300 src="images/brazil.png" hspace = "15">
+      <img algn="left" height=250 src="images/brazil.png" hspace = "15">
    </a>
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/got_map.png" target="_blank">
-      <img algn="right" height=300 src="images/got_map.png" hspace = "15">
+      <img algn="right" height=250 src="images/got_map.png" hspace = "15">
    </a>
 </div>
 
@@ -79,9 +79,9 @@ $> Enter the name that the image will be saved: <map-name>.fdf
   
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/van-gogh.png" target="_blank">
-      <img algn="right" height=300 src="images/van-gogh.png" hspace = "15">
+      <img algn="right" height=250 src="images/van-gogh.png" hspace = "15">
    </a>
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/monalisa.png" target="_blank">
-      <img algn="left" height=300 src="images/monalisa.png" hspace = "15">
+      <img algn="left" height=250 src="images/monalisa.png" hspace = "15">
    </a>
 </div>
