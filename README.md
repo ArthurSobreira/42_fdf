@@ -64,7 +64,7 @@ $> Enter the image path: <image-name>
 $> Enter the name that the image will be saved: <map-name>.fdf
 ```
 
-* Once the map is created, to render it just execute the command seen previously, with this it is possible to generate some really cool maps, like these:
+* Once the map is generated, to render it just execute the command seen previously, with this it is possible to generate some really cool maps, like these:
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/brazil.png" target="_blank">
@@ -74,9 +74,7 @@ $> Enter the name that the image will be saved: <map-name>.fdf
       <img algn="right" height=250 src="images/got_map.png" hspace = "15">
    </a>
 </div>
-
 <br>
-  
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/van-gogh.png" target="_blank">
       <img algn="right" height=250 src="images/van-gogh.png" hspace = "15">
