@@ -17,18 +17,18 @@
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf" target="_blank">
-      <img height=650 src="images/42_map.png">
+      <img height=550 src="images/42_map.png">
    </a>
 </div>
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf" target="_blank">
-      <img height=650 src="images/whole-world_map.png">
+      <img height=550 src="images/whole-world_map.png">
    </a>
 </div>
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf" target="_blank">
-      <img height=650 src="images/elem-fract_map.png">
+      <img height=550 src="images/elem-fract_map.png">
    </a>
 </div>
