@@ -32,3 +32,19 @@
       <img height=550 src="images/elem-fract_map.png">
    </a>
 </div>
+
+<br>
+
+## Run the Program
+* Make sure you clone the repository with the following command:
+
+```bash
+$> git clone git@github.com:ArthurSobreira/42_fdf.git
+```
+
+* Once cloned, to compile and run the program, use the following commands:
+
+```bash
+$> make bonus
+$> ./fdf_bonus ./maps/<map-name>.fdf
+```
