@@ -1,17 +1,18 @@
 NAME = fdf
+CC = clang
 NAME_BONUS = fdf_bonus
 VALGRIND_LOG = valgrind.log
 
 # Flags for compilations
 CFLAGS = -O3 -ffast-math -fno-stack-protector \
 		-g3 -Wall -Wextra -Werror
-MLX_FLAGS = -lX11 -lXext -lmlx
+MLX_FLAGS = -lbsd -lX11 -lXext -lmlx
 
 # Paths for libraries
 LIB_PATH = ./libs/libft
 LIB_NAME = libft.a
 MLX_PATH = ./libs/minilibx
-MLX_NAME = libmlx.a
+MLX_NAME = libmlx_Linux.a
 
 # Paths Definitions
 HEADER_PATH = ./includes
