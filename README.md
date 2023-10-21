@@ -50,9 +50,10 @@ $> ./fdf_bonus ./maps/<map-name>.fdf
 <br>
 
 ## Generate Map From Image
-* First of all, you need to install the <strong>Pillow</strong> package, with the following command:
+* First of all, you need to install the <strong>Pillow</strong> and <strong>Numpy</strong> packages, with the following commands:
 ```bash
 $> pip install Pillow
+$> pip install numpy
 ```
 
 * Now, to create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
