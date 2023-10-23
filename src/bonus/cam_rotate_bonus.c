@@ -50,7 +50,7 @@ void	rotate_y(t_point *initial_point, t_point *end_point, float angle)
 				initial_point->z * cos_ang;
 	new_end.x = end_point->x * cos_ang + \
 				end_point->z * sin_ang;
-	new_initial.z = end_point->x * sin_ang + \
+	new_end.z = end_point->x * sin_ang + \
 				end_point->z * cos_ang;
 	initial_point->x = new_initial.x;
 	initial_point->z = new_initial.z;

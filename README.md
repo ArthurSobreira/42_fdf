@@ -50,9 +50,10 @@ $> ./fdf_bonus ./maps/<map-name>.fdf
 <br>
 
 ## Generate Map From Image
-* First of all, you need to install the <strong>Pillow</strong> package, with the following command:
+* First of all, you need to install the <strong>Pillow</strong> and <strong>Numpy</strong> packages, with the following commands:
 ```bash
 $> pip install Pillow
+$> pip install numpy
 ```
 
 * Now, to create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
@@ -64,7 +65,7 @@ $> Enter the image path: <image-name>
 $> Enter the name that the image will be saved: <map-name>.fdf
 ```
 
-* Once the map is created, to render it just execute the command seen previously, with this it is possible to generate some really cool maps, like these:
+* Once the map is generated, to render it just execute the command seen previously, with this it is possible to generate some really cool maps, like these:
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/brazil.png" target="_blank">
@@ -74,9 +75,7 @@ $> Enter the name that the image will be saved: <map-name>.fdf
       <img algn="right" height=250 src="images/got_map.png" hspace = "15">
    </a>
 </div>
-
 <br>
-  
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/van-gogh.png" target="_blank">
       <img algn="right" height=250 src="images/van-gogh.png" hspace = "15">
