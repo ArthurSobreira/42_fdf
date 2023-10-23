@@ -8,9 +8,9 @@
 
 ## Summary
 
-> `<i>`The fifth project in the 42sp fundamentals track, `<strong>`Fdf`</strong>`, is also the first graphical project in the fundamentals track, `</i>`
-> `<i>`which uses a simple graphics library called `<strong>`MinilibX`</strong>`. The project is based on the creation of a program that receives `</i>`
-> `<i>`as a parameter a path to a map (any valid map with '.fdf' extension) and displays it in a Three-Dimensional Representation of Relief Landscapes. `</i>`
+> <i>The fifth project in the 42sp fundamentals track, <strong>Fdf</strong>, is also the first graphical project in the fundamentals track, </i>
+> <i>which uses a simple graphics library called <strong>MinilibX</strong>. The project is based on the creation of a program that receives </i>
+> <i>as a parameter a path to a map (any valid map with '.fdf' extension) and displays it in a Three-Dimensional Representation of Relief Landscapes. </i>
 
 <br>
 
@@ -56,15 +56,15 @@ $> ./fdf_bonus ./maps/<map-name>.fdf
 
 ## Generate Map From Image
 
-* First of all, you need to install the `<strong>`Pillow`</strong>` and `<strong>`Numpy`</strong>` packages, with the following commands:
+* First of all, you need to install the <strong>Pillow</strong> and <strong>Numpy</strong> packages, with the following commands:
 
 ```bash
 $> pip install Pillow
 $> pip install numpy
 ```
 
-* Now, to create properly formatted maps that can be read by `<strong>`Fdf `</strong>`, simply have access to an image (PNG or JPG)
-  and run the script `<code>`map_generator.py `</code>` with the following command:
+* Now, to create properly formatted maps that can be read by <strong>Fdf</strong>, simply have access to an image (PNG or JPG)
+  and run the script <code>map_generator.py</code> with the following command:
 
 ```bash
 $> python3 map_generator.py
@@ -74,7 +74,8 @@ $> Enter the name that the image will be saved: <map-name>.fdf
 ```
 
 * Once the map is generated, to render it just execute the command seen previously, with this it is possible to generate some really cool maps, like these:
-  `<br>`
+
+<br>
 
 <div align="center">
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/brazil.png" target="_blank">
