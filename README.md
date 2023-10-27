@@ -14,7 +14,7 @@
 
 <br>
 <div align="center">
-   <a href="https://github.com/ArthurSobreira/map_generator" target="_blank">
+   <a href="https://github.com/ArthurSobreira/map_generator_fdf" target="_blank">
       <img height=55 src="images/map_link.png">
    </a>
 </div><br>
