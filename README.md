@@ -15,7 +15,7 @@
 <br>
 <div align="center">
    <a href="https://github.com/ArthurSobreira/map_generator" target="_blank">
-      <img height=75 src="images/map_link.png">
+      <img height=55 src="images/map_link.png">
    </a>
 </div><br>
 
