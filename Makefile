@@ -96,7 +96,7 @@ $(NAME_BONUS): $(BONUS_OBJECTS)
 	@echo $(CYAN)" --------------------------------------------------"$(COLOR_LIMITER)
 	@echo $(CYAN)"| FDF_BONUS executable was created successfully!! |"$(COLOR_LIMITER)
 	@echo $(CYAN)"--------------------------------------------------"$(COLOR_LIMITER)
-	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -lm -L $(LIB_PATH) -L $(MLX_PATH)	 \
+	@$(CC) $(CFLAGS) -o $(NAME_BONUS) $(BONUS_OBJECTS) -lm -L $(LIB_PATH) -L $(MLX_PATH) \
 	-lft $(MLX_FLAGS)
 	@echo " "
 
