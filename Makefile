@@ -1,5 +1,4 @@
 NAME = fdf
-CC = clang
 NAME_BONUS = fdf_bonus
 VALGRIND_LOG = valgrind.log
 
