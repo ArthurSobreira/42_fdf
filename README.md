@@ -65,6 +65,12 @@
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/fdf_rotateZ.gif" target="_blank">
       <img height=550 src="images/fdf_rotateZ.gif">
    </a>
+</div>
+<div align="center">
+   <i><h3>Increase Z Scale</h3></i>
+   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/fdf_increaseZ.gif" target="_blank">
+      <img height=550 src="images/fdf_increaseZ.gif">
+   </a>
 </div><br>
 
 ## Run the Program
