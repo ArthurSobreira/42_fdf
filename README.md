@@ -89,6 +89,7 @@
       <img height=550 src="images/fdf_increaseZ.gif">
    </a>
 </div><br>
+</div>
 
 ## Run the Program
 
