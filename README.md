@@ -94,13 +94,13 @@
 
 * Make sure you clone the repository with the following command:
 
-```bash
+``` bash
 $> git clone git@github.com:ArthurSobreira/42_fdf.git
 ```
 
 * Once cloned, to compile and run the program, use the following commands:
 
-```bash
+``` bash
 $> make bonus
 $> ./fdf_bonus ./maps/<map-name>.fdf
 ```
