@@ -23,21 +23,38 @@
 
 <br>
 <div align="center">
-   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/42_map.png" target="_blank">
-      <img height=550 src="images/42_map.png">
-   </a>
+   <table>
+     <tr>
+       <td style="border: 5px solid darkgray;">
+          <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/42_map.png" target="_blank">
+            <img height=550 src="images/42_map.png">
+          </a>
+       </td>
+     </tr>
+   </table>
 </div>
 <br>
 <div align="center">
-   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/whole-world_map.png" target="_blank">
-      <img height=550 src="images/whole-world_map.png">
-   </a>
-</div>
+   <table>
+     <tr>
+       <td style="border: 5px solid darkgray;">
+         <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/whole-world_map.png" target="_blank">
+            <img height=550 src="images/whole-world_map.png">
+          </a>
+       </td>
+     </tr>
+   </table>
 <br>
 <div align="center">
-   <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/elem-fract_map.png" target="_blank">
-      <img height=550 src="images/elem-fract_map.png">
-   </a>
+   <table>
+     <tr>
+       <td style="border: 5px solid darkgray;">
+         <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/elem-fract_map.png" target="_blank">
+            <img height=550 src="images/elem-fract_map.png">
+          </a>
+       </td>
+     </tr>
+   </table>
 </div><br>
 
 ## Movements
@@ -72,18 +89,19 @@
       <img height=550 src="images/fdf_increaseZ.gif">
    </a>
 </div><br>
+</div>
 
 ## Run the Program
 
 * Make sure you clone the repository with the following command:
 
-```bash
+``` bash
 $> git clone git@github.com:ArthurSobreira/42_fdf.git
 ```
 
 * Once cloned, to compile and run the program, use the following commands:
 
-```bash
+``` bash
 $> make bonus
 $> ./fdf_bonus ./maps/<map-name>.fdf
 ```
