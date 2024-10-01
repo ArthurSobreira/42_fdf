@@ -57,8 +57,6 @@
    </table>
 </div><br>
 
-## Movements
-
 <div align="center">
    <i><h3>Zoom In / Out</h3></i>
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/fdf_zoom.gif" target="_blank">
@@ -84,7 +82,7 @@
    </a>
 </div>
 <div align="center">
-   <i><h3>Increase Z Scale</h3></i>
+   <i><h3>Increase / Decrease Z Scale</h3></i>
    <a href="https://github.com/ArthurSobreira/42_fdf/blob/master/images/fdf_increaseZ.gif" target="_blank">
       <img height=550 src="images/fdf_increaseZ.gif">
    </a>
