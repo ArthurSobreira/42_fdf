@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 19:41:14 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:43:43 by arsobrei         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:09:39 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,16 @@ static void	handle_z_scale(int key, t_fdf *fdf)
 {
 	if (key == XK_x)
 	{
-		if (fdf->map->max_z > 300)
-			fdf->cam->multi_factor += 0.02;
-		else if (fdf->map->max_z < 20)
+		if (fdf->map->max_z < 20)
 			fdf->cam->multi_factor += 1;
 		else
-			fdf->cam->multi_factor += 0.2;
+			fdf->cam->multi_factor += 0.01;
 	}
 	else if (key == XK_z)
 	{
-		if (fdf->map->max_z > 300)
-			fdf->cam->multi_factor -= 0.02;
-		else if (fdf->map->max_z < 20)
+		if (fdf->map->max_z < 20)
 			fdf->cam->multi_factor -= 1;
 		else
-			fdf->cam->multi_factor -= 0.2;
+			fdf->cam->multi_factor -= 0.01;
 	}
 }
