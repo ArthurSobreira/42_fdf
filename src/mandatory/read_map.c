@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:12:37 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/16 15:26:39 by arsobrei         ###   ########.fr       */
+/*   Updated: 2026/02/05 16:32:12 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	get_height(char *map_name)
 	while (1)
 	{
 		line = get_next_line(file_descriptor);
-		if ((line == NULL) && (!ft_isprint(*line)))
+		if (line == NULL)
 			break ;
 		height++;
 		free(line);
@@ -90,7 +90,7 @@ static void	get_matrix(t_map *map, char *map_name)
 	while (1)
 	{
 		line = get_next_line(file_descriptor);
-		if ((line == NULL) && (!ft_isprint(*line)))
+		if (line == NULL)
 			break ;
 		split_line = ft_split(line, ' ');
 		fill_matrix(map, split_line, height);
