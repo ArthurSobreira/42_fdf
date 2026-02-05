@@ -6,7 +6,7 @@
 /*   By: arsobrei <arsobrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:23:42 by arsobrei          #+#    #+#             */
-/*   Updated: 2023/10/18 12:09:20 by arsobrei         ###   ########.fr       */
+/*   Updated: 2026/02/05 16:32:36 by arsobrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ short	valid_width(int file_descriptor, int width)
 	while (1)
 	{
 		line = get_next_line(file_descriptor);
-		if ((line == NULL) && (!ft_isprint(*line)))
+		if (line == NULL)
 			break ;
 		split_line = ft_split(line, ' ');
 		while ((split_line[temp_width]) && \
