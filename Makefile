@@ -5,7 +5,8 @@ VALGRIND_LOG = valgrind.log
 # Flags for compilations
 CFLAGS = -O3 -ffast-math -fno-stack-protector \
 		-g3 -Wall -Wextra -Werror
-MLX_FLAGS = -lbsd -lX11 -lXext -lmlx
+MLX_FLAGS = -lmlx -lX11 -lXext -lbsd
+# MLX_FLAGS = -lbsd -lX11 -lXext -lmlx
 
 # Paths for libraries
 LIB_PATH = ./libs/libft
